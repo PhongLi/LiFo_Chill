@@ -1,0 +1,36 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+
+
+
+:root {
+    --color-primary: #e18660!important;
+    --text-color: #212020!important;
+    --text-white: #fcfaf8!important;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    text-rendering: optimizeSpeed;
+}
+
+
+
+// Font henju
+@font-face {
+    font-family: Henju, sans-serif;
+    src: url('/assets/fonts/Henju-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: Henju, sans-serif;
+    src: url('/assets/fonts/Henju-Bold.ttf');
+    font-weight: 400;
+}
