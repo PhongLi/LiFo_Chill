@@ -7,7 +7,7 @@ import Header from './Header';
 const cx = classNames.bind(styles);
 function PlayerLayout({ children }) {
     return (
-        <div>
+        <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>{children}</div>
         </div>

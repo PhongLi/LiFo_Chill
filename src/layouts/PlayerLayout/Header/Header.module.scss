@@ -1,0 +1,49 @@
+.wrapper {
+    position: fixed;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    padding: 0 48px;
+    z-index: 1;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    
+    .signUp-btn{
+        border-radius: 8px;
+        padding: 5px 16px;
+        margin-right: 8px;
+        text-align: center;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+.actionBtn {
+    display: flex;
+    margin-left: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        opacity: 0.3;
+    }
+
+    img {
+        height: 32px;
+        width: 32px;
+    }
+}

@@ -1,5 +1,9 @@
+import classNames from 'classnames/bind';
+import styles from './Main.module.scss';
+
+const cx = classNames.bind(styles);
 function Main() {
-    return <h1>Main</h1>;
+    return <div className={cx('wrapper')}>Main</div>;
 }
 
 export default Main;

@@ -1,27 +1,36 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-
-
-
-
 :root {
-    --color-primary: #e18660!important;
-    --text-color: #212020!important;
-    --text-white: #fcfaf8!important;
-
+    --color-primary: #f3a952 !important;
+    --text-color: #212020 !important;
+    --text-white: #fcfaf8 !important;
+    --color-default: #fff;
+    --font-family: Roboto, serif;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 html {
     font-size: 62.5%;
-    text-rendering: optimizeSpeed;
 }
 
+body {
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    color: var(--color-default);
+    text-rendering: optimizeSpeed;
+    overflow-y: overlay;
+}
 
+img {
+    border-style: none;
+    vertical-align: middle;
+}
 
 // Font henju
 @font-face {
