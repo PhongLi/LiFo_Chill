@@ -5,6 +5,7 @@
     flex-direction: column;
     font-size: 2rem;
     margin-top: 200px;
+    color: var(--text-color);
 }
 .title {
     font-size: 3.2rem;
@@ -12,4 +13,12 @@
 
 .content {
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.backHome {
+    text-decoration: underline;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
 }

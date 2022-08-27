@@ -39,7 +39,7 @@
     background-color: var(--color-primary);
     border-radius: 32px;
     line-height: 24px;
-    
+
     &:hover {
         opacity: 0.6;
     }
@@ -60,10 +60,20 @@
     line-height: 1.8rem;
     background: linear-gradient(269.36deg, rgba(225, 134, 96, 0.9) 23.92%, rgba(244, 202, 93, 0.9) 101.14%);
     text-align: left;
-    padding: 6px 16px;
+    padding: 6px 12px;
     .emoji {
         font-size: 32px;
         line-height: 32px;
         margin-right: 8px;
     }
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
 }

@@ -35,9 +35,9 @@ function Button({ to, href, type, size, emoji, leftIcon, rightIcon, className, c
     return (
         <Comp className={classes} {...props}>
             {emoji && <span role="img" className={cx('emoji')}aria-label={`${emoji.label} emoji`}>{emoji.symbol}</span>}
-            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            {leftIcon && <img src={leftIcon} className={cx('icon')}alt=""/>}
             <span className={cx('title')}>{children}</span>
-            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+            {rightIcon && <img src={rightIcon} className={cx('icon')}alt=""/>}
 
         </Comp>
     );
@@ -53,5 +53,6 @@ Button.propTypes = {
     rightIcon: PropTypes.node,
     children: PropTypes.node.isRequired,
     onClick: PropTypes.func,
+    emoji: PropTypes.object,
 };
 export default Button;

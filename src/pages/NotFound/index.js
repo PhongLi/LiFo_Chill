@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-
 import styles from './NotFound.module.scss';
-
 
 function NotFound() {
     return (
@@ -14,7 +12,9 @@ function NotFound() {
                 </span>
                 we couldn't find what you were looking for.
             </p>
-            <Link to="/">Home</Link>
+            <Link to="/" className={styles.backHome}>
+                Home
+            </Link>
         </div>
     );
 }

@@ -1,5 +1,7 @@
 .wrapper {
     position: fixed;
+    top: 0;
+    left: 0;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -8,7 +10,6 @@
 .inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     height: 100%;
     width: 100vw;
     padding: 0 48px;
@@ -18,7 +19,7 @@
 .actions {
     display: flex;
     align-items: center;
-    
+    margin-top: 28px;
     .signUp-btn{
         border-radius: 8px;
         padding: 5px 16px;

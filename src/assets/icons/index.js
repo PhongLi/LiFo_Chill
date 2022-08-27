@@ -51,7 +51,13 @@ import windIcon from './noises/wind.svg';
 import oceanIcon from './noises/ocean.svg';
 import snowIcon from './noises/snow.svg';
 import keyboardIcon from './noises/keyboard.svg';
-
+import contactIcon from './contactIcon.svg'
+import faqIcon from './faqIcon.svg'
+import feedback from './feedback.svg'
+import infos from './infos.svg'
+import infoIcon from './infoIcon.svg'
+import playlist from './playlist.svg'
+import settingIcon from './settingIcon.svg'
 export {
     volumeActive,
     volumeMute,
@@ -106,4 +112,11 @@ export {
     snowIcon,
     keyboardIcon,
     share,
+    contactIcon,
+    faqIcon,
+    feedback,
+    infos,
+    infoIcon,
+    playlist,
+    settingIcon,
 };
