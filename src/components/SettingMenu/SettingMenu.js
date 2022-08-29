@@ -1,22 +1,30 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
 import styles from './SettingMenu.module.scss';
-import { Button } from '../Button';
+import Button from '~/components/Button';
+import { AppContext } from '~/Context/AppProvider';
 
 const cx = classNames.bind(styles);
 
 function SettingMenu({ items = [], children }) {
-    const handleOnclick = (item) => {
-        console.log(item)
-    }
-    
+    const { setModalType } = useContext(AppContext);
+
     const renderItems = () =>
         items.map((item, index) => {
             const Icon = item.icon;
+            const handleClick = () => {
+                if (['Tutorial', 'PremiumPopup'].includes(item.modal)) {
+                    setModalType(item.modal);
+                } else {
+                    console.log(item);
+                }
+            };
+
             return (
-                <Button key={index} leftIcon={Icon} to={item.to} className={cx('menu-item')} onClick={()=>handleOnclick(item.title)}>
+                <Button key={index} leftIcon={Icon} to={item.to} className={cx('menu-item')} onClick={handleClick}>
                     {item.title}
                 </Button>
             );
@@ -42,6 +50,6 @@ function SettingMenu({ items = [], children }) {
 SettingMenu.propTypes = {
     items: PropTypes.array,
     children: PropTypes.node.isRequired,
-}
+};
 
 export default SettingMenu;

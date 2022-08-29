@@ -1,1 +1,1 @@
-export { default as SettingMenu } from './SettingMenu';
+export { default } from './SettingMenu';

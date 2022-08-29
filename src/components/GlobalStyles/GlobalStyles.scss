@@ -1,3 +1,4 @@
+
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
@@ -28,13 +29,23 @@ body {
 }
 
 img {
+    
     border-style: none;
     vertical-align: middle;
+}
+video {
+    display: block;
 }
 
 a {
     text-decoration: none;
 }
+
+// css for slick-react
+.slick-active div {
+    opacity: 1;
+}
+
 // Font henju
 @font-face {
     font-family: Henju, sans-serif;

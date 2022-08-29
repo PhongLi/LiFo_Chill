@@ -1,0 +1,36 @@
+.bottom-bar {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 118px;
+    width: 100vw;
+    bottom: -18px;
+    z-index: 10;
+    
+    .artist-info {
+        position: absolute;
+        left: 80px;
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        &:hover {
+            opacity: 0.3;
+        }
+    }
+}
+
+// next icon, prev icon
+.button-np {
+    height: 36px;
+    width: 36px;
+}
+// play, pause icon
+.button-pp {
+    height: 54px;
+    width: 54px;
+    margin-left: 16px;
+    margin-right: 16px;
+}

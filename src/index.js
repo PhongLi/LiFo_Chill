@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyles';
+import { AppProvider } from './Context';
+import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <GlobalStyles>
-        <App />
+        <AppProvider>
+            <App />
+        </AppProvider>
     </GlobalStyles>,
 );
 

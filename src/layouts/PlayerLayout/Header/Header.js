@@ -3,10 +3,24 @@ import { useState } from 'react';
 
 import styles from './Header.module.scss';
 import { logoGif } from '~/assets/images';
-import { profileIcon, faqIcon, feedback, infos, infoIcon, playlist, settingIcon, contactIcon } from '~/assets/icons';
-import { Button } from '~/components/Button';
-import { share, volumeActive, volumeMute, menu, fullscreenIcon } from '~/assets/icons';
-import { SettingMenu } from '~/components/SettingMenu';
+import {
+    share,
+    volumeActive,
+    volumeMute,
+    menu,
+    fullscreenIcon,
+    profileIcon,
+    faqIcon,
+    feedback,
+    infos,
+    infoIcon,
+    playlist,
+    settingIcon,
+    contactIcon,
+} from '~/assets/icons';
+import Button from '~/components/Button';
+import SettingMenu from '~/components/SettingMenu';
+
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -29,6 +43,7 @@ function Header() {
         {
             title: 'How it works',
             icon: infos,
+            modal: 'Tutorial',
         },
         {
             title: 'FAQ',
@@ -50,19 +65,19 @@ function Header() {
         },
     ];
 
-
     const checkFullScreen = () => {
         var doc = window.document;
-        // least one is fullscreen -> true 
+        // least one is fullscreen -> true
         return (
             doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement
         );
     };
 
+    // toggle when click fullscreen button
     const handleFullScreen = () => {
         const doc = window.document;
         const docEl = doc.documentElement;
-        
+
         let requestFullScreen =
             docEl.requestFullscreen ||
             docEl.mozRequestFullScreen ||
@@ -73,15 +88,13 @@ function Header() {
 
         if (!checkFullScreen()) {
             requestFullScreen.call(docEl);
-            setFullscreen(true)
+            setFullscreen(true);
         } else {
             cancelFullScreen.call(doc);
-            setFullscreen(false)
-
+            setFullscreen(false);
         }
     };
 
-    
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -90,12 +103,14 @@ function Header() {
                 </div>
                 <div className={cx('actions')}>
                     <Button type="transparent">11:38 PM</Button>
-                    {!fullscreen && <Button type="premium" emoji={{ symbol: '🚀', label: 'rocket' }}>
-                        <p>
-                            Access +20 scenes
-                            <br />& more with premium
-                        </p>
-                    </Button>}
+                    {!fullscreen && (
+                        <Button type="premium" emoji={{ symbol: '🚀', label: 'rocket' }}>
+                            <p>
+                                Access +20 scenes
+                                <br />& more with premium
+                            </p>
+                        </Button>
+                    )}
                     <Button type="transparent" className={cx('signUp-btn')}>
                         Sign up
                     </Button>
