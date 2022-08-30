@@ -5,6 +5,8 @@ import { AppContext } from '~/Context/AppProvider';
 
 import styles from './DefaultModal.module.scss';
 import Tutorial from '~/components/Tutorial';
+import AboutUs from '~/components/AboutUs';
+import Share from '~/components/Share';
 const cx = classNames.bind(styles);
 
 function DefaultModal() {
@@ -26,7 +28,16 @@ function DefaultModal() {
                         leaveTo="opacity-0"
                     >
                         {/* backdrop blur */}
-                        <div className="fixed inset-0 bg-black/70 backdrop-blur-xl" aria-hidden="true" />
+                        <div
+                            className={`fixed inset-0 
+                           ${
+                               ['Tutorial', 'AboutUs'].includes(modalType)
+                                   ? 'bg-black/70 backdrop-blur-xl'
+                                   : 'bg-black/50'
+                           }
+                       `}
+                            aria-hidden="true"
+                        />
                     </Transition.Child>
 
                     <Transition.Child
@@ -38,7 +49,11 @@ function DefaultModal() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className={cx('Modal')}>{modalType === 'Tutorial' && <Tutorial />}</div>
+                        <div className={cx('Modal')}>
+                            {modalType === 'Tutorial' && <Tutorial />}
+                            {modalType === 'AboutUs' && <AboutUs />}
+                            {modalType === 'Share' && <Share />}
+                        </div>
                     </Transition.Child>
                 </Dialog>
             </Transition>

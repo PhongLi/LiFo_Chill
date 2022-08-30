@@ -5,26 +5,39 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, type, size, emoji, leftIcon, rightIcon, className, children, disabled = false, onClick, ...passProps }) {
+function Button({
+    to,
+    href,
+    type,
+    size,
+    emoji,
+    leftIcon,
+    rightIcon,
+    className,
+    children,
+    disabled = false,
+    onClick,
+    ...passProps
+}) {
     let Comp = 'button';
     const props = {
         onClick,
         ...passProps,
-    }
+    };
 
-    if(disabled) {
+    if (disabled) {
         Object.keys(props).forEach((key) => {
-            if(key.startsWith('on') && props[key] === 'function') {
-                    delete props[key]
+            if (key.startsWith('on') && props[key] === 'function') {
+                delete props[key];
             }
-        })
+        });
     }
-    if(to) {
+    if (to) {
         Comp = Link;
-        props.to = to
-    } else if(href) {
+        props.to = to;
+    } else if (href) {
         Comp = 'a';
-        props.href = href
+        props.href = href;
     }
     const classes = cx('wrapper', {
         [className]: className,
@@ -34,11 +47,14 @@ function Button({ to, href, type, size, emoji, leftIcon, rightIcon, className, c
     });
     return (
         <Comp className={classes} {...props}>
-            {emoji && <span role="img" className={cx('emoji')}aria-label={`${emoji.label} emoji`}>{emoji.symbol}</span>}
-            {leftIcon && <img src={leftIcon} className={cx('icon')}alt=""/>}
+            {emoji && (
+                <span role="img" className={cx('emoji')} aria-label={`${emoji.label} emoji`}>
+                    {emoji.symbol}
+                </span>
+            )}
+            {leftIcon && <img src={leftIcon} className={cx('icon')} alt="" />}
             <span className={cx('title')}>{children}</span>
-            {rightIcon && <img src={rightIcon} className={cx('icon')}alt=""/>}
-
+            {rightIcon && <img src={rightIcon} className={cx('icon')} alt="" />}
         </Comp>
     );
 }

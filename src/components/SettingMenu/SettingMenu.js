@@ -16,7 +16,7 @@ function SettingMenu({ items = [], children }) {
         items.map((item, index) => {
             const Icon = item.icon;
             const handleClick = () => {
-                if (['Tutorial', 'PremiumPopup'].includes(item.modal)) {
+                if (['Tutorial', 'AboutUs'].includes(item.modal)) {
                     setModalType(item.modal);
                 } else {
                     console.log(item);
@@ -33,6 +33,7 @@ function SettingMenu({ items = [], children }) {
     return (
         <Tippy
             interactive
+            visible
             hideOnClick={false}
             delay={[0, 1000]}
             offset={[30, 15]}

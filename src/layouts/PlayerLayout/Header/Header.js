@@ -1,69 +1,19 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import styles from './Header.module.scss';
 import { logoGif } from '~/assets/images';
-import {
-    share,
-    volumeActive,
-    volumeMute,
-    menu,
-    fullscreenIcon,
-    profileIcon,
-    faqIcon,
-    feedback,
-    infos,
-    infoIcon,
-    playlist,
-    settingIcon,
-    contactIcon,
-} from '~/assets/icons';
+import { share, volumeActive, volumeMute, menu, fullscreenIcon } from '~/assets/icons';
 import Button from '~/components/Button';
 import SettingMenu from '~/components/SettingMenu';
+import { AppContext } from '~/Context/AppProvider';
+import { MENU_ITEMS } from '~/constants';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-
-    const MENU_ITEMS = [
-        {
-            title: 'User settings',
-            icon: profileIcon,
-        },
-        {
-            title: 'General settings',
-            icon: settingIcon,
-        },
-        {
-            title: 'Contact us',
-            icon: contactIcon,
-            to: '/contact',
-        },
-        {
-            title: 'How it works',
-            icon: infos,
-            modal: 'Tutorial',
-        },
-        {
-            title: 'FAQ',
-            icon: faqIcon,
-            to: '/faq',
-        },
-        {
-            title: 'Music',
-            icon: playlist,
-            to: '/music',
-        },
-        {
-            title: 'About us',
-            icon: infoIcon,
-        },
-        {
-            title: 'Share feedback',
-            icon: feedback,
-        },
-    ];
+    const { setModalType } = useContext(AppContext);
 
     const checkFullScreen = () => {
         var doc = window.document;
@@ -114,7 +64,7 @@ function Header() {
                     <Button type="transparent" className={cx('signUp-btn')}>
                         Sign up
                     </Button>
-                    <button className={cx('actionBtn')}>
+                    <button className={cx('actionBtn')} onClick={() => setModalType('Share')}>
                         <img src={share} alt="share" />
                     </button>
                     <button className={cx('actionBtn')}>

@@ -10,40 +10,11 @@ import { closeIcon } from '~/assets/icons';
 import styles from './Tutorial.module.scss';
 import Button from '~/components/Button';
 import { AppContext } from '~/Context/AppProvider';
+import { Titles } from '~/constants';
 
 const cx = classNames.bind(styles);
 
-const Titles = [
-    {
-        title1: 'Your calm, digital space to study,',
-        title2: '',
-        msg: 'Welcome to lofi.co. Let us show you around!',
-    },
-    {
-        title1: 'The Perfect Playlist',
-        title2: 'With One Click',
-        msg: 'Hit play and get into the zone instantly. No ads. No distracting lyrics.',
-        msg2: '3 Stations to suit your mood: chill, jazzy or sleepy.',
-    },
-    {
-        title1: 'Craft Your Focus Environment',
-        title2: '',
-        msg: 'Would you rather get it done in the cafe, or escape to the beach? Lofi.co gives you both with interactive artworks. ',
-        msg2: 'Basic users can access 2 artworks, while premium users have exclusive access to a growing library of 13+ illustrations.',
-    },
-    {
-        title1: 'Cut Out Distractions',
-        title2: 'With Peaceful Sounds',
-        msg: 'Drown out even the noisiest neighbour with soothing background sounds. Each artwork comes with adjustable sounds like rain, waves or birds. Some sounds change the scene’s visuals.',
-        msg2: 'Basic users get 3 sound effects. Premium users can mix and match 20+ sounds. ',
-    },
 
-    {
-        title1: 'The Focus Zone (Premium)',
-        msg: 'Deadline coming up? The Focus Zone lets you stay on track by gathering the best focus tools in one place - away from your distracting smartphone.',
-        msg2: '- Pomodoro timer: get more done in less time (without burning out)<br/>- Notepad: never let a thought disappear<br/>- Time logger: track your progress<br/>- To-do list: always know what to do next',
-    },
-];
 
 function Carousel({ setModalType }) {
     const [page, setPage] = useState(0);

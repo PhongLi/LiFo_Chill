@@ -16,6 +16,7 @@
         overflow: hidden;
     }
 }
+
 .action-btn {
     display: flex;
     flex-direction: column;
@@ -25,7 +26,7 @@
         margin-top: 8px;
         opacity: 0.5;
         font-size: 1.3rem;
-        margin-left: 0;
+        margin-left: 0!important;
     }
 }
 .customDots {

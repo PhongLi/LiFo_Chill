@@ -1,7 +1,7 @@
 .wrapper {
     align-items: center;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: inherit;
     color: var(--color-default);
     padding: 6px;
@@ -28,11 +28,11 @@
 // type button
 .transparent {
     background-color: #ffffff26;
+    font-weight: 500;
 }
 
 .rounded {
     font-size: 1.6rem;
-    font-weight: 600;
     padding: 6px 16px;
     min-width: 120px;
     color: var(--text-color);
@@ -43,11 +43,15 @@
     &:hover {
         opacity: 0.6;
     }
+    .icon {
+        width: 22px;
+        height: 22px;
+        filter: brightness(1000) invert(100%);
+    }
 }
 
 .outline {
     font-size: 1.2rem;
-    font-weight: 600;
     background-color: #000;
     border: 1px solid #24242f;
     padding: 8px 18px;
@@ -62,18 +66,28 @@
     text-align: left;
     padding: 6px 12px;
     .emoji {
-        font-size: 32px;
+        font-size: 3.2rem;
         line-height: 32px;
         margin-right: 8px;
     }
 }
-
+.social {
+    font-size: 2rem;
+    background-color: #352828;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 32px;
+    transition: all 0.2s ease;
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+}
 .clear {
     background-color: transparent;
     color: var(--color-default);
     font-weight: 700;
 }
-
 
 .icon {
     width: 16px;

@@ -1,0 +1,64 @@
+.share-modal {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+    background-color: #000;
+    border-radius: 16px;
+}
+.inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 24px;
+
+    h1 {
+        text-align: center;
+        font-size: 3.2rem;
+    }
+    .desc {
+        opacity: 0.5;
+    }
+    input {
+        font-size: 1.2rem;
+        width: 100%;
+        color: var(--color-default);
+        text-align: center;
+        background-color: rgba(40, 40, 40, 0.3);
+        border: 2px solid #0f00;
+        border-radius: 8px;
+        margin: 16px 0 8px;
+        padding: 4px 16px;
+        overflow: hidden;
+        outline: none;
+        text-overflow: ellipsis;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+    .copied {
+        border-color: #0f03!important;
+    }
+    .text-copied {
+        color: #0f0a;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        opacity: 0.3;
+        cursor: pointer;
+    }
+    &:focus-visible {
+        outline: none;
+    }
+}
