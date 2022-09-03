@@ -33,7 +33,6 @@ function SettingMenu({ items = [], children }) {
     return (
         <Tippy
             interactive
-            visible
             hideOnClick={false}
             delay={[0, 1000]}
             offset={[30, 15]}

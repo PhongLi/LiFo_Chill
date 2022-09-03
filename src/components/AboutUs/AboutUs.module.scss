@@ -7,22 +7,10 @@
     width: 100vw;
     z-index: 9999;
 
-    .close-btn {
-        position: absolute;
+    .pos {
         top: 30px;
         right: 20px;
-        background: transparent;
-        border: none;
-        transition: all 0.2s ease-in-out;
-        &:hover {
-            opacity: 0.3;
-            cursor: pointer;
-        }
-        &:focus-visible {
-            outline: none;
-        }
     }
-
 }
 .content {
     width: 60%;
@@ -32,7 +20,7 @@
         font-size: 4.6rem;
         font-weight: 700;
         line-height: 4.6rem;
-        margin: 32px 0;
+        margin: 3.2rem 0;
     }
     p {
         font-size: 1.6rem;

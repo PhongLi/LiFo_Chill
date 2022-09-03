@@ -1,22 +1,19 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 import classNames from 'classnames/bind';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import PropsType from 'prop-types'
 
 import { logoGif } from '~/assets/images';
-import { closeIcon } from '~/assets/icons';
 import styles from './Tutorial.module.scss';
-import Button from '~/components/Button';
-import { AppContext } from '~/Context/AppProvider';
+import Button, { ButtonClose } from '~/components/Button';
 import { Titles } from '~/constants';
 
 const cx = classNames.bind(styles);
 
-
-
-function Carousel({ setModalType }) {
+function Carousel({ onClose }) {
     const [page, setPage] = useState(0);
     const slickRef = useRef();
 
@@ -28,7 +25,7 @@ function Carousel({ setModalType }) {
         setPage(next);
     };
 
-    const handleExit = () => setModalType(null);
+    const handleExit = onClose;
 
     const setting = {
         arrows: false,
@@ -114,19 +111,18 @@ function Carousel({ setModalType }) {
     );
 }
 
-function Tutorial() {
-    const { setModalType } = useContext(AppContext);
-
+function Tutorial({ onClose }) {
     return (
         <div className={cx('tutorial')}>
-            <button className={cx('close-btn')} onClick={() => setModalType(null)}>
-                <img src={closeIcon} alt="close" />
-            </button>
+            <ButtonClose className={cx('pos')} onClick={onClose} />
             <div className={cx('slider')}>
-                <Carousel setModalType={setModalType} />
+                <Carousel onClose={onClose} />
             </div>
         </div>
     );
 }
 
+Tutorial.propsType = {
+    onClose: PropsType.func.isRequired,
+}
 export default Tutorial;

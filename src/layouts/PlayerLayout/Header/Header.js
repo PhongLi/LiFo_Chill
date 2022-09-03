@@ -54,7 +54,11 @@ function Header() {
                 <div className={cx('actions')}>
                     <Button type="transparent">11:38 PM</Button>
                     {!fullscreen && (
-                        <Button type="premium" emoji={{ symbol: '🚀', label: 'rocket' }}>
+                        <Button
+                            type="premium"
+                            emoji={{ symbol: '🚀', label: 'rocket' }}
+                            onClick={() => setModalType('Pricing')}
+                        >
                             <p>
                                 Access +20 scenes
                                 <br />& more with premium

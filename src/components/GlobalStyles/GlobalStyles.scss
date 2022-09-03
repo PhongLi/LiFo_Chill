@@ -1,4 +1,3 @@
-
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
@@ -29,7 +28,6 @@ body {
 }
 
 img {
-    
     border-style: none;
     vertical-align: middle;
 }
@@ -56,4 +54,8 @@ a {
     font-family: Henju, sans-serif;
     src: url('/assets/fonts/Henju-Bold.ttf');
     font-weight: 400;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }

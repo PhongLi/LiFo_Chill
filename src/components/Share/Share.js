@@ -1,15 +1,14 @@
 import classNames from 'classnames/bind';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { closeIcon, twitterIcon } from '~/assets/icons';
+import { twitterIcon } from '~/assets/icons';
 import styles from './Share.module.scss';
-import Button from '~/components/Button';
-import { AppContext } from '~/Context/AppProvider';
+import Button, { ButtonClose } from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function Share() {
-    const { setModalType } = useContext(AppContext);
+function Share({ onClose }) {
     const [isCopied, setIsCopied] = useState(false);
 
     const copyToClipboard = (e) => {
@@ -19,15 +18,13 @@ function Share() {
 
     return (
         <div className={cx('share-modal')}>
-            <button
-                className={cx('close-btn')}
+            <ButtonClose
+                className={cx('pos')}
                 onClick={() => {
-                    setModalType(null);
+                    onClose();
                     setIsCopied(false);
                 }}
-            >
-                <img src={closeIcon} alt="close" />
-            </button>
+            />
             <div className={cx('inner')}>
                 <h1 className={cx('title')}>Share</h1>
                 <p className={cx('desc')}>
@@ -35,7 +32,7 @@ function Share() {
                 </p>
                 <input
                     onClick={copyToClipboard}
-                    className={isCopied && cx('copied')}
+                    className={isCopied ? cx('copied') : ''}
                     readOnly
                     value="https://app.lofi.co/"
                     contentEditable={false}
@@ -48,5 +45,9 @@ function Share() {
         </div>
     );
 }
+
+Share.propsType = {
+    onClose: PropTypes.func.isRequired,
+};
 
 export default Share;

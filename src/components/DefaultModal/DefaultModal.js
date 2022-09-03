@@ -7,6 +7,8 @@ import styles from './DefaultModal.module.scss';
 import Tutorial from '~/components/Tutorial';
 import AboutUs from '~/components/AboutUs';
 import Share from '~/components/Share';
+import Pricing from '~/components/Pricing';
+
 const cx = classNames.bind(styles);
 
 function DefaultModal() {
@@ -50,9 +52,10 @@ function DefaultModal() {
                         leaveTo="opacity-0"
                     >
                         <div className={cx('Modal')}>
-                            {modalType === 'Tutorial' && <Tutorial />}
-                            {modalType === 'AboutUs' && <AboutUs />}
-                            {modalType === 'Share' && <Share />}
+                            {modalType === 'Tutorial' && <Tutorial onClose={() => setModalType(null)}/>}
+                            {modalType === 'AboutUs' && <AboutUs onClose={() => setModalType(null)}/>}
+                            {modalType === 'Share' && <Share onClose={() => setModalType(null)}/>}
+                            {modalType === 'Pricing' && <Pricing onClose={() => setModalType(null)}/>}
                         </div>
                     </Transition.Child>
                 </Dialog>

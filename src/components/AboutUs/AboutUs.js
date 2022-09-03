@@ -1,21 +1,18 @@
 import classNames from 'classnames/bind';
-import React, { useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './AboutUs.module.scss';
 import { ABOUT_US } from '~/constants';
-import { instagramIcon, twitterIcon, mailIcon, closeIcon } from '~/assets/icons';
-import { AppContext } from '~/Context/AppProvider';
-import Button from '~/components/Button';
+import { instagramIcon, twitterIcon, mailIcon } from '~/assets/icons';
+import Button, { ButtonClose } from '~/components/Button';
 const cx = classNames.bind(styles);
 
-function AboutUs() {
-    const { setModalType } = useContext(AppContext);
-
+function AboutUs({ onClose }) {
     return (
         <div className={cx('about-us')}>
-            <button className={cx('close-btn')} onClick={() => setModalType(null)}>
-                <img src={closeIcon} alt="close" />
-            </button>
+            <ButtonClose className={cx('pos')} onClick={onClose} />
+
             <div className={cx('content')}>
                 <h1 className={cx('title')}>About us</h1>
                 <p>{ABOUT_US.about1}</p>
@@ -41,5 +38,7 @@ function AboutUs() {
         </div>
     );
 }
-
+AboutUs.propsType = {
+    onClose: PropTypes.func.isRequired,
+};
 export default AboutUs;
