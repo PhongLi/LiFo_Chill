@@ -1,12 +1,7 @@
-.wrapper {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
 .dialog {
     position: fixed;
     inset: 0;
-    z-index: 50;
+    z-index: 9999999;
     overflow-y: auto;
 }
 
@@ -15,5 +10,4 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    z-index: 20;
 }

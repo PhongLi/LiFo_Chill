@@ -59,3 +59,20 @@ a {
 *::-webkit-scrollbar {
     display: none;
 }
+
+// custom tooltip
+
+body {
+    .tippy-box {
+        background-color: #00000080;
+        border-radius: 0.8rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+    .tippy-arrow {
+        display: none;
+    }
+    .tippy-content {
+        margin: 0 16px;
+    }
+}

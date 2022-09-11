@@ -3,18 +3,29 @@ import { useState, useContext } from 'react';
 
 import styles from './Header.module.scss';
 import { logoGif } from '~/assets/images';
-import { share, volumeActive, volumeMute, menu, fullscreenIcon } from '~/assets/icons';
+import {
+    share,
+    volumeActive,
+    volumeMute,
+    menu,
+    fullscreenIcon,
+    sunIcon,
+    moonIcon,
+    sunnyIcon,
+    rainyIcon,
+} from '~/assets/icons';
 import Button from '~/components/Button';
 import SettingMenu from '~/components/SettingMenu';
-import { AppContext } from '~/Context/AppProvider';
+import { AppContext } from '~/Store/AppProvider';
 import { MENU_ITEMS } from '~/constants';
+import Switch from 'react-switch';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
     const { setModalType } = useContext(AppContext);
-
+    const [isNight, setIsNight] = useState(false);
     const checkFullScreen = () => {
         var doc = window.document;
         // least one is fullscreen -> true
@@ -53,6 +64,60 @@ function Header() {
                 </div>
                 <div className={cx('actions')}>
                     <Button type="transparent">11:38 PM</Button>
+                    {/* toggle day night */}
+                    <div className={cx('toggle-weather')}>
+                        <Switch
+                            checked={isNight}
+                            onChange={() => {
+                                setIsNight(!isNight);
+                            }}
+                            offColor="#bfbfbf"
+                            onColor="#f3a952"
+                            offHandleColor="#fff"
+                            height={30}
+                            width={60}
+                            handleDiameter={24}
+                            activeBoxShadow="0px 0px 0px 0px transparent"
+                            checkedIcon={
+                                <div className={cx('switch-icon')}>
+                                    <img src={sunIcon} alt="" />
+                                </div>
+                            }
+                            uncheckedIcon={
+                                <div className={cx('switch-icon')}>
+                                    <img src={moonIcon} alt="" />
+                                </div>
+                            }
+                        />
+                    </div>
+
+                    {/* toggle sunny rain */}
+                    <div className={cx('toggle-weather')}>
+                        <Switch
+                            checked={isNight}
+                            onChange={() => {
+                                setIsNight(!isNight);
+                            }}
+                            offColor="#bfbfbf"
+                            onColor="#f3a952"
+                            offHandleColor="#fff"
+                            height={30}
+                            width={60}
+                            handleDiameter={24}
+                            activeBoxShadow="0px 0px 0px 0px transparent"
+                            checkedIcon={
+                                <div className={cx('switch-icon')}>
+                                    <img src={sunnyIcon} style={{ transform: 'translateY(-12%)' }} alt="" />
+                                </div>
+                            }
+                            uncheckedIcon={
+                                <div className={cx('switch-icon')}>
+                                    <img src={rainyIcon} alt="" />
+                                </div>
+                            }
+                        />
+                    </div>
+                    {/* fullscreen button */}
                     {!fullscreen && (
                         <Button
                             type="premium"

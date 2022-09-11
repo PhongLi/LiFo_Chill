@@ -1,4 +1,3 @@
-
 import {
     cafeThumb,
     forestThumb,
@@ -16,9 +15,7 @@ import {
 
 import { scenes } from './scenes.data';
 
-
-
-export const sceneSet = [
+export const sets = [
     {
         _id: 'honolulu',
         thumbnail: honoluluPW,

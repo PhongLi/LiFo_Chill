@@ -13,6 +13,9 @@
 }
 
 .Pricing {
+    --box-color: #000000cb;
+
+
     position: relative;
     @include flex-row;
     justify-content: center;
@@ -25,7 +28,7 @@
     .pos {
         top: 20px;
         right: 20px;
-        z-index: 9999;
+        z-index: 50;
     }
     h3 {
         text-align: center;
@@ -44,7 +47,7 @@
     width: 592px;
     height: 100%;
     overflow-y: auto;
-    background-color: #000;
+    background-color: var(--box-color);
     border-radius: 16px;
     padding: 16px;
     z-index: 20;
@@ -116,7 +119,7 @@
         margin: 32px;
     }
     .box {
-        background-color: #000000cb;
+        background-color: var(--box-color);
     }
 
     p {

@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 import styles from './SettingMenu.module.scss';
 import Button from '~/components/Button';
-import { AppContext } from '~/Context/AppProvider';
+import { AppContext } from '~/Store/AppProvider';
 
 const cx = classNames.bind(styles);
 

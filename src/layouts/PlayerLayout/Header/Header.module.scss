@@ -5,22 +5,24 @@
     height: 80px;
     display: flex;
     justify-content: center;
-    z-index: 30;
+    z-index: 1000000;
 }
 .inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     height: 100%;
     width: 100vw;
     padding: 0 48px;
-    z-index: 30;
+    z-index: 1;
 }
 
 .actions {
     display: flex;
     align-items: center;
-    margin-top: 28px;
-    .signUp-btn{
+    margin-top: 10px;
+
+    .signUp-btn {
         border-radius: 8px;
         padding: 5px 16px;
         margin-right: 8px;
@@ -28,6 +30,28 @@
         &:hover {
             opacity: 0.5;
         }
+    }
+
+    .toggle-weather {
+        margin: 0 16px;
+        transition: all 0.25s ease-in 0.1s;
+        &:hover {
+            opacity: 0.5;
+        }
+
+        .switch-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        
+            img {
+                height: 16px;
+            }
+        }
+    }
+    .toggle-weather + .toggle-weather {
+        margin-left: 0;
     }
 }
 
@@ -37,7 +61,7 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
         opacity: 0.3;
@@ -48,3 +72,5 @@
         width: 32px;
     }
 }
+
+
