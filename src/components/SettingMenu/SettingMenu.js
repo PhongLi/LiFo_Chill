@@ -1,16 +1,15 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
 
-import styles from './SettingMenu.module.scss';
+import { useStore } from '~/hooks';
 import Button from '~/components/Button';
-import { AppContext } from '~/Store/AppProvider';
+import styles from './SettingMenu.module.scss';
 
 const cx = classNames.bind(styles);
 
 function SettingMenu({ items = [], children }) {
-    const { setModalType } = useContext(AppContext);
+    const { setModalType } = useStore();
 
     const renderItems = () =>
         items.map((item, index) => {

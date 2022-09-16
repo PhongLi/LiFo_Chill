@@ -60,6 +60,10 @@ a {
     display: none;
 }
 
+img video{
+    border-style: none;
+    vertical-align: middle;
+}
 // custom tooltip
 
 body {
@@ -74,5 +78,15 @@ body {
     }
     .tippy-content {
         margin: 0 16px;
+    }
+    .tippy-box[data-theme~='lateral'] {
+        background-color: #363636;
+        color: #fff;
+        font-size: 1.4rem;
+
+        .tippy-content {
+            margin: 0;
+            padding: 0.8rem;
+        }
     }
 }

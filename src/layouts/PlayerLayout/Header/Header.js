@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import styles from './Header.module.scss';
 import { logoGif } from '~/assets/images';
@@ -16,16 +16,17 @@ import {
 } from '~/assets/icons';
 import Button from '~/components/Button';
 import SettingMenu from '~/components/SettingMenu';
-import { AppContext } from '~/Store/AppProvider';
 import { MENU_ITEMS } from '~/constants';
 import Switch from 'react-switch';
+import { useStore } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-    const { setModalType } = useContext(AppContext);
+    const { setModalType } = useStore();
     const [isNight, setIsNight] = useState(false);
+
     const checkFullScreen = () => {
         var doc = window.document;
         // least one is fullscreen -> true

@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    
+    .lateral-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        min-height: 252px;
+        width: 60px;
+        padding: 18px 0;
+        margin-right: 20px;
+        border-radius: 8px;
+        background-color: #121212;
+        z-index: 9999;
+
+        .menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 55px;
+            width: 60px;
+            cursor: pointer;
+
+        }
+        .svg * {
+            fill: var(--color-primary);
+        }
+    }
+}

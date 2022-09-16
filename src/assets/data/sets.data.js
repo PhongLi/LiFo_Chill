@@ -16,21 +16,16 @@ import {
 import { scenes } from './scenes.data';
 
 export const sets = [
-    {
-        _id: 'honolulu',
-        thumbnail: honoluluPW,
-        name: 'Honolulu',
-        scenes: [scenes.honoluluIN, scenes.honoluluOut],
-        effects: ['keyboard', 'storm', 'ocean'],
-    },
+  
     {
         _id: 'book_cafe',
         thumbnail: bookCafe,
         name: 'Book Cafe',
         scenes: [scenes.bookCafeOut, scenes.bookCafeIn],
         effects: ['city', 'rain_street', 'keyboard'],
-        premium: true,
+        premium: false,
     },
+    
 
     {
         _id: 'dreaming',
@@ -46,6 +41,14 @@ export const sets = [
         name: 'Kyoto',
         scenes: [scenes.kyotoStreet, scenes.kyotoPark],
         effects: ['city', 'birds', 'river'],
+        premium: true,
+    },
+    {
+        _id: 'honolulu',
+        thumbnail: honoluluPW,
+        name: 'Honolulu',
+        scenes: [scenes.honoluluIn, scenes.honoluluOut],
+        effects: ['keyboard', 'storm', 'ocean'],
         premium: true,
     },
     {

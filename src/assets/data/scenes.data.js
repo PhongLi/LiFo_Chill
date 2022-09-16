@@ -615,7 +615,7 @@ export const scenes = {
             },
         ],
     },
-    honoluluIN: {
+    honoluluIn: {
         variants: {
             default: URL + Videos.honolulu.inside,
             storm: URL + Videos.honolulu.insideRain,

@@ -1,0 +1,111 @@
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+}
+
+.wrapper {
+    width: 350px;
+    max-width: 100%;
+    background-color: #121212;
+    border-radius: 16px;
+    z-index: 9999;
+}
+.scenes-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    align-items: center;
+    max-height: 600px;
+    margin: 16px;
+    border-radius: 16px;
+    animation: fade-in 0.4s linear;
+    animation-fill-mode: both;
+
+    .title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        width: 100%;
+        margin: 8px 0;
+    }
+    .scene-selector {
+        position: relative;
+        margin: 8px 0;
+        animation: fade-in 0.4s linear;
+        animation-fill-mode: both;
+
+        img {
+            height: 180px;
+            width: 100%;
+            aspect-ratio: 16/9; // should use this if images have different sizes
+            border-radius: 12px;
+            object-fit: cover;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .thumb {
+            transition: all 0.2s ease-in-out;
+        }
+        .premium {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            z-index: 1000;
+        }
+    }
+
+    .scenes-nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        z-index: 2020;
+        img {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        h5 {
+            text-align: center;
+            margin-right: 16px;
+        }
+    }
+}
+
+// banner premium
+.premium-banner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #000c;
+    z-index: 2000;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+    h4 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 2.4rem;
+        margin: 16px;
+    }
+
+    .accent {
+        color: var(--color-primary);
+    }
+    .login-btn {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}

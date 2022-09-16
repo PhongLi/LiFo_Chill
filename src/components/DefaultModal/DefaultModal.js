@@ -1,18 +1,18 @@
 import classNames from 'classnames/bind';
 import { Transition, Dialog } from '@headlessui/react';
-import React, { Fragment, useContext } from 'react';
-import { AppContext } from '~/Store/AppProvider';
+import React, { Fragment } from 'react';
 
 import styles from './DefaultModal.module.scss';
 import Tutorial from '~/components/Tutorial';
 import AboutUs from '~/components/AboutUs';
 import Share from '~/components/Share';
 import Pricing from '~/components/Pricing';
+import { useStore } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 function DefaultModal() {
-    const { modalType, setModalType } = useContext(AppContext);
+    const { modalType, setModalType } = useStore();
 
     const closeModal = () => setModalType(null);
 
