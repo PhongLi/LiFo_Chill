@@ -2,8 +2,13 @@
     position: absolute;
     inset: 0;
 }
-.background-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.background-video {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    video{
+        object-fit: cover;
+    }
+
+    
 }
+

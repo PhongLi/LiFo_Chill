@@ -2,10 +2,10 @@ import classNames from 'classnames/bind';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './AboutUs.module.scss';
 import { ABOUT_US } from '~/constants';
 import { instagramIcon, twitterIcon, mailIcon } from '~/assets/icons';
 import Button, { ButtonClose } from '~/components/Button';
+import styles from './AboutUs.module.scss';
 const cx = classNames.bind(styles);
 
 function AboutUs({ onClose }) {

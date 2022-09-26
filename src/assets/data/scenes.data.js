@@ -32,8 +32,8 @@ const URL = 'https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/scenes/';
 // Wallpaper Api
 const URLW = 'https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/wallpapers/';
 
-
 export const scenes = {
+    
     forestInside: {
         thumbnail: forestInsidePreview,
         wallpaper: URLW + 'Forest+House/forest1.jpg',
@@ -564,7 +564,7 @@ export const scenes = {
                 effect: 'birds',
             },
             {
-                position: [30, 85],
+                position: [30, 75],
                 title: 'City Traffic',
                 type: 'sound',
                 effect: 'city',

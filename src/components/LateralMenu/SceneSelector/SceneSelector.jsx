@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 import { sets } from '~/assets/data/sets.data';
 import { arrowLeftIcon, premiumIcon } from '~/assets/icons';
+import {setSceneAndSet} from '~/Store/session/'
 import useStore from '~/hooks/useStore';
-import styles from './SceneSelector.module.scss';
 import Button from '~/components/Button';
 
+import styles from './SceneSelector.module.scss';
 const cx = classNames.bind(styles);
 
 function SceneSelector() {
@@ -15,11 +16,16 @@ function SceneSelector() {
 
     // getSetAndScenes
     const { background } = useStore();
-    const [backgroundState] = background;
-    const currentSet = backgroundState.set;
+    const [backgroundState, backgroundDispatch] = background;
     
+    const currentSet = backgroundState.set;
     const isLogin = false; 
 
+
+    const handleChangeScene = (set, sceneIndex) => {
+        backgroundDispatch(setSceneAndSet({set, sceneIndex}))
+
+    }
     return (
         <div className={cx('wrapper')}>
             <div className={cx('scenes-container')}>
@@ -35,7 +41,7 @@ function SceneSelector() {
                             <h5 className={cx('title')}>Switch scene</h5>
                         </div>
                         {selectedSet.scenes.map((scene, index) => (
-                            <div className={cx('scene-selector')} key={'s' + index}>
+                            <div className={cx('scene-selector')} key={'s' + index} onClick={() => handleChangeScene(selectedSet, index)}>
                                 <img
                                     src={scene.thumbnail}
                                     alt="thumbnail"

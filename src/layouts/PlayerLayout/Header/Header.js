@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+import Switch from 'react-switch';
 
-import styles from './Header.module.scss';
-import { logoGif } from '~/assets/images';
+import { logoGif, pixelModeOff, pixelModeOn } from '~/assets/images';
 import {
     share,
     volumeActive,
@@ -11,21 +11,33 @@ import {
     fullscreenIcon,
     sunIcon,
     moonIcon,
-    sunnyIcon,
-    rainyIcon,
 } from '~/assets/icons';
 import Button from '~/components/Button';
 import SettingMenu from '~/components/SettingMenu';
 import { MENU_ITEMS } from '~/constants';
-import Switch from 'react-switch';
 import { useStore } from '~/hooks';
+import { useSelector } from '~/hooks/useSelector';
+import { SessionSelect, setSceneNight, setScenePixel } from '~/Store/session';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-    const { setModalType } = useStore();
-    const [isNight, setIsNight] = useState(false);
+    const { setModalType, background } = useStore();
+    const [, backgroundDispatch] = background;
+
+    const nightMode = useSelector(SessionSelect.nightMode);
+    const pixelMode = useSelector(SessionSelect.pixelMode);
+    const currentScene = useSelector(SessionSelect.getScene);
+
+    const variants = Object.keys(currentScene.variants);
+
+    const hasNightVersion = !!variants.find((variant) => variant.includes('night'));
+    const hasPixelVersion = !!variants.find((variant) => variant.includes('pixel'));
+
+    // console.log('hasNightVersion', hasNightVersion);
+    // console.log('hasPixelVersion', hasPixelVersion);
 
     const checkFullScreen = () => {
         var doc = window.document;
@@ -66,58 +78,54 @@ function Header() {
                 <div className={cx('actions')}>
                     <Button type="transparent">11:38 PM</Button>
                     {/* toggle day night */}
-                    <div className={cx('toggle-weather')}>
-                        <Switch
-                            checked={isNight}
-                            onChange={() => {
-                                setIsNight(!isNight);
+                    {hasNightVersion && (
+                        <div className={cx('toggle-weather')}>
+                            <Switch
+                                checked={!nightMode}
+                                onChange={() => {
+                                    backgroundDispatch(setSceneNight());
+                                }}
+                                offColor="#bfbfbf"
+                                onColor="#f3a952"
+                                offHandleColor="#fff"
+                                height={30}
+                                width={60}
+                                handleDiameter={24}
+                                activeBoxShadow="0px 0px 0px 0px transparent"
+                                checkedIcon={
+                                    <div className={cx('switch-icon')}>
+                                        <img src={sunIcon} alt="" />
+                                    </div>
+                                }
+                                uncheckedIcon={
+                                    <div className={cx('switch-icon')}>
+                                        <img src={moonIcon} alt="" />
+                                    </div>
+                                }
+                            />
+                        </div>
+                    )}
+                    {/* toggle pixel mode */}
+                    {hasPixelVersion && (
+                        <div
+                            className={cx('toggle-pixel')}
+                            onClick={() => {
+                                backgroundDispatch(setScenePixel());
                             }}
-                            offColor="#bfbfbf"
-                            onColor="#f3a952"
-                            offHandleColor="#fff"
-                            height={30}
-                            width={60}
-                            handleDiameter={24}
-                            activeBoxShadow="0px 0px 0px 0px transparent"
-                            checkedIcon={
-                                <div className={cx('switch-icon')}>
-                                    <img src={sunIcon} alt="" />
-                                </div>
-                            }
-                            uncheckedIcon={
-                                <div className={cx('switch-icon')}>
-                                    <img src={moonIcon} alt="" />
-                                </div>
-                            }
-                        />
-                    </div>
+                        >
+                            {pixelMode ? (
+                                <img src={pixelModeOn} alt="" className={cx('pixel-icon')} />
+                            ) : (
+                                <img
+                                    src={pixelModeOff}
+                                    alt=""
+                                    className={cx('pixel-icon')}
+                                    style={{ filter: 'invert()' }}
+                                />
+                            )}
+                        </div>
+                    )}
 
-                    {/* toggle sunny rain */}
-                    <div className={cx('toggle-weather')}>
-                        <Switch
-                            checked={isNight}
-                            onChange={() => {
-                                setIsNight(!isNight);
-                            }}
-                            offColor="#bfbfbf"
-                            onColor="#f3a952"
-                            offHandleColor="#fff"
-                            height={30}
-                            width={60}
-                            handleDiameter={24}
-                            activeBoxShadow="0px 0px 0px 0px transparent"
-                            checkedIcon={
-                                <div className={cx('switch-icon')}>
-                                    <img src={sunnyIcon} style={{ transform: 'translateY(-12%)' }} alt="" />
-                                </div>
-                            }
-                            uncheckedIcon={
-                                <div className={cx('switch-icon')}>
-                                    <img src={rainyIcon} alt="" />
-                                </div>
-                            }
-                        />
-                    </div>
                     {/* fullscreen button */}
                     {!fullscreen && (
                         <Button

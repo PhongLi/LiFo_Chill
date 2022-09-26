@@ -6,7 +6,6 @@ import LateralMenu from '~/components/LateralMenu';
 
 const cx = classNames.bind(styles);
 function Main() {
-
     return (
         <div className={cx('wrapper')}>
             <Background />

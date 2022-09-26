@@ -16,6 +16,7 @@
 }
 html {
     font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
     color: var(--color-default);
     text-rendering: optimizeSpeed;
     overflow-y: overlay;
+    background-color: #14141d;
 }
 
 img {
@@ -60,7 +62,7 @@ a {
     display: none;
 }
 
-img video{
+img video {
     border-style: none;
     vertical-align: middle;
 }

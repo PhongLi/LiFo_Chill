@@ -1,19 +1,20 @@
 import React, { useState, createContext, useReducer } from 'react';
 import reducer, { INITIAL_STATE } from './reducer';
+import { logger } from '~/utils';
+
 export const AppContext = createContext();
 
 function AppProvider({ children }) {
     const [modalType, setModalType] = useState();
     const [menuActive, setMenuActive] = useState();
-    const [backgroundState, backgroundDispatch] = useReducer(reducer, INITIAL_STATE);
+    const [backgroundState, backgroundDispatch] = useReducer(logger(reducer), INITIAL_STATE);
 
+    console.log('-----------provider render------------');
     const value = {
         modalType,
         setModalType,
         menuActive,
         setMenuActive,
-        // backgroundState,
-        // backgroundDispatch
         background: [backgroundState, backgroundDispatch],
     };
 

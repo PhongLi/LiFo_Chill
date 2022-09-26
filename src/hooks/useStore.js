@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AppContext } from '~/Store';
+import { AppContext } from '~/Store/session';
 
 function useStore() {
     const { modalType, setModalType, menuActive, setMenuActive, background } = useContext(AppContext);

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import { playIcon, nextIcon, prevIcon, pauseIcon } from '~/assets/icons';

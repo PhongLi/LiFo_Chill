@@ -33,7 +33,7 @@ export const sets = [
         name: 'Am I Dreaming?',
         scenes: [scenes.space, scenes.underwater],
         effects: ['keyboard', 'space', 'underwater'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'kyoto',
@@ -41,7 +41,7 @@ export const sets = [
         name: 'Kyoto',
         scenes: [scenes.kyotoStreet, scenes.kyotoPark],
         effects: ['city', 'birds', 'river'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'honolulu',
@@ -49,7 +49,7 @@ export const sets = [
         name: 'Honolulu',
         scenes: [scenes.honoluluIn, scenes.honoluluOut],
         effects: ['keyboard', 'storm', 'ocean'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'chill_vibes',
@@ -57,12 +57,12 @@ export const sets = [
         name: 'Chill Vibes',
         scenes: [scenes.lrBedRoom, scenes.lrLivingRoom],
         effects: ['city', 'rain_street', 'fireplace'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'cottage',
         thumbnail: cottage,
-        premium: true,
+        premium: false,
         name: 'Northern Lights',
         scenes: [scenes.cottageIn, scenes.cottageOut],
         effects: ['snow', 'keyboard', 'fireplace'],
@@ -73,7 +73,7 @@ export const sets = [
         name: 'Lofi Desk',
         scenes: [scenes.deskCity, scenes.deskBeach, scenes.deskSnow],
         effects: ['city', 'waves', 'snow'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'forest_house',
@@ -81,7 +81,7 @@ export const sets = [
         name: 'Forest House',
         scenes: [scenes.forestInside, scenes.forestOutside],
         effects: ['rain_forest', 'birds', 'river'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'ocean_tale',
@@ -89,7 +89,7 @@ export const sets = [
         name: 'Ocean Tales',
         scenes: [scenes.oceanInside, scenes.oceanOutside],
         effects: ['ocean', 'wind', 'storm'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'lofi_cafe',
@@ -97,7 +97,7 @@ export const sets = [
         name: 'Lofi cafè',
         scenes: [scenes.cafeInside, scenes.cafeOutside],
         effects: ['city', 'rain_street', 'people', 'rain_window'],
-        premium: true,
+        premium: false,
     },
     {
         _id: 'van_life',
@@ -105,7 +105,7 @@ export const sets = [
         name: 'Van Life',
         scenes: [scenes.vanInside, scenes.vanOutside],
         effects: ['fire', 'forest', 'rain_forest'],
-        premium: true,
+        premium: false,
     },
 
     {
@@ -114,6 +114,6 @@ export const sets = [
         name: 'Summer Days',
         scenes: [scenes.summerInside, scenes.summerOutside],
         effects: ['storm', 'fan', 'waves'],
-        premium: true,
+        premium: false,
     },
 ];
