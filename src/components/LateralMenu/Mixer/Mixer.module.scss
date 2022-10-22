@@ -1,0 +1,174 @@
+$mixer-margin: 0 32px;
+
+.wrapper {
+    position: relative;
+    width: 345px;
+    max-width: 100%;
+    max-height: 92vh;
+    background-color: #121212;
+    border-radius: 16px;
+    z-index: 9999;
+    .mixer-panel {
+        margin: $mixer-margin;
+    }
+    .title {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 700;
+    }
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 16px 0 4px;
+    margin: $mixer-margin;
+    img {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    background-color: var(--color-bgd-200);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    
+    .effect-mode {
+        font-size: 1.4rem;
+        opacity: 0.5;
+        text-align: center;
+    }
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.moods {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 16px 0;
+
+    .mood-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 84px;
+        height: 84px;
+        background-color: var(--color-bgd-200);
+        border-radius: 12px;
+        cursor: pointer;
+
+        .mood-icon {
+            position: absolute;
+            transform: scale(1.52);
+            top: -30%;
+            left: -7%;
+            filter: brightness(2) opacity(0.1);
+        }
+        p {
+            position: absolute;
+            font-size: 1.6rem;
+            bottom: 10px;
+            opacity: 0.3;
+        }
+    }
+    .selected {
+        .mood-icon {
+            filter: none;
+        }
+        p {
+            opacity: 1;
+        }
+    }
+}
+
+.music-volume {
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    // slider
+    .volume-slider {
+        height: 12px;
+        width: 100%;
+        border-radius: 9999px;
+        background-color: var(--color-bgd-200);
+        margin: 0 16px;
+        .volume-thumb {
+            cursor: pointer;
+            position: absolute;
+            top: -2px;
+            background-color: #ffffff;
+            height: 16px;
+            width: 16px;
+            border-radius: 9999px;
+            outline: none;
+            z-index: 100;
+        }
+        .volume-track {
+            height: 100%;
+            background-color: var(--color-bgd-200);
+            border-radius: 9999px;
+        }
+        .active {
+            background-color: var(--color-primary);
+        }
+    }
+}
+
+// Css for effect item component
+.effects-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+}
+
+.effect-volume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    p {
+        font-size: 1.4rem;
+        color: var(--color-default);
+        opacity: 0.4;
+    }
+    .volume-slider {
+        width: 144px;
+        height: 24px;
+        background-color: var(--color-bgd-200);
+        border-radius: 9999px;
+
+        .volume-thumb {
+            cursor: pointer;
+            top: -1px;
+            background-color: transparent;
+            height: 26px;
+            width: 26px;
+            border-radius: 9999px;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            z-index: 100;
+        }
+        .volume-track {
+            height: 100%;
+            background-color: var(--color-bgd-200);
+            border-radius: 9999px;
+        }
+        .active {
+            background-color: var(--color-primary);
+        }
+    }
+}

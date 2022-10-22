@@ -15,6 +15,7 @@
     width: 100vw;
     padding: 0 48px;
     z-index: 1;
+    transition: all 0.3s ease-in-out;
 }
 
 .actions {
@@ -43,7 +44,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-        
+
             img {
                 height: 16px;
             }
@@ -61,7 +62,6 @@
     .toggle-weather + .toggle-pixel {
         margin-left: 0;
     }
-
 }
 
 .actionBtn {
@@ -82,4 +82,12 @@
     }
 }
 
-
+@media only screen and (max-width: 923px) {
+    .inner {
+        padding: 0 24px;
+        justify-content: flex-end;
+    }
+    .header-logo {
+        display: none !important;
+    }
+}

@@ -7,7 +7,7 @@ export const AppContext = createContext();
 function AppProvider({ children }) {
     const [modalType, setModalType] = useState();
     const [menuActive, setMenuActive] = useState();
-    const [backgroundState, backgroundDispatch] = useReducer(logger(reducer), INITIAL_STATE);
+    const [sessionState, sessionDispatch] = useReducer(logger(reducer), INITIAL_STATE);
 
     console.log('-----------provider render------------');
     const value = {
@@ -15,7 +15,7 @@ function AppProvider({ children }) {
         setModalType,
         menuActive,
         setMenuActive,
-        background: [backgroundState, backgroundDispatch],
+        session: [sessionState, sessionDispatch],
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

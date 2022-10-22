@@ -6,6 +6,7 @@
     --text-color: #212020 !important;
     --text-white: #fcfaf8 !important;
     --color-default: #fff;
+    --color-bgd-200: #2828284d;
     --font-family: Roboto, serif;
 }
 * {
@@ -24,9 +25,10 @@ body {
     font-size: 1.4rem;
     line-height: 2.2rem;
     color: var(--color-default);
+    background-color: #14141d;
     text-rendering: optimizeSpeed;
     overflow-y: overlay;
-    background-color: #14141d;
+    user-select: none;
 }
 
 img {
@@ -41,6 +43,11 @@ a {
     text-decoration: none;
 }
 
+@media only screen and (max-width: 923px) {
+    .hideMobile {
+        display: none !important;
+    }
+}
 // css for slick-react
 .slick-active div {
     opacity: 1;

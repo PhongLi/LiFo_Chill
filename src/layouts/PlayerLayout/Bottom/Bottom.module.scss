@@ -6,17 +6,31 @@
     height: 54px;
     width: 100vw;
     margin: 32px 0;
-    bottom: -18px;
+    bottom: 8px;
     z-index: 1000000;
-    
+    transition: all 0.3s ease-in-out;
     .artist-info {
         position: absolute;
         left: 80px;
+        display: flex;
+        align-items: center;
+        transition: all 0.5s ease;
+
+        .title {
+            height: 70px;
+            margin: 0 16px;
+
+            &:hover {
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                transform: scale(1.03);
+            }
+        }
     }
 
     .icon {
         cursor: pointer;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         &:hover {
             opacity: 0.3;
         }

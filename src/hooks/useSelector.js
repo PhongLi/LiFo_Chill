@@ -1,11 +1,11 @@
-import { useContext } from 'react'
-import { AppContext } from '~/Store/session';
+import useStore from './useStore';
 
 export const useSelector = (callback) => {
-    const {background} = useContext(AppContext);
-    const [backgroundState] = background
-       
-    const State = {...backgroundState}
-    
-    return callback(State)
- }
+    const { session } = useStore();
+    const [sessionState] = session;
+
+    // merge state
+    const State = { ...sessionState };
+
+    return callback(State);
+};

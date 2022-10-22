@@ -4,24 +4,23 @@ import 'tippy.js/dist/tippy.css';
 import PropTypes from 'prop-types';
 
 import { useStore } from '~/hooks';
-import { setSceneEffect } from '~/Store/session/';
+import { playAndPauseEffect, setSceneEffect } from '~/store/session';
 import styles from './SceneActions.module.scss';
 
 const cx = classNames.bind(styles);
 
 function SceneActions({ scene, onNextScene }) {
-    const { setMenuActive, background } = useStore();
-    const [, backgroundDispatch] = background;
+    const { setMenuActive, session } = useStore();
+    const [, sessionDispatch] = session;
     //close Lateral menu: scene, mixer, moods..
     const handleCloseMenu = () => setMenuActive(undefined);
 
     const handlePlayPauseEffect = (action) => {
-        // has effect scene
+        // if this effect has scene background -> change scene
         if (Object.keys(scene.variants).includes(action.effect)) {
-            console.log(action.effect);
-            backgroundDispatch(setSceneEffect({ effect: action.effect }));
+            sessionDispatch(setSceneEffect({ effect: action.effect }));
         }
-        // play sound
+        sessionDispatch(playAndPauseEffect({ type: action.effect }));
     };
     const actions = scene.actions;
     return (
@@ -46,9 +45,10 @@ function SceneActions({ scene, onNextScene }) {
                                 e.stopPropagation();
                                 if (action.type === 'next-set') {
                                     onNextScene?.();
-                                }
-                                if (action.type === 'sound') {
+                                } else if (action.type === 'sound') {
                                     handlePlayPauseEffect(action);
+                                } else if (action.type === 'open-mixer') {
+                                    setMenuActive('Mixer');
                                 }
                             }}
                         >

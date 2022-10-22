@@ -15,7 +15,6 @@
 .Pricing {
     --box-color: #000000cb;
 
-
     position: relative;
     @include flex-row;
     justify-content: center;
@@ -146,7 +145,7 @@
     border-radius: 16px;
     margin: 8px;
     padding: 16px;
-    background-color: rgba(40, 40, 40, 0.3);
+    background-color: var(--color-bgd-200);
     overflow: hidden;
 
     .plan-name {

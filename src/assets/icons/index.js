@@ -35,22 +35,7 @@ import volumeActive from './volume-active.svg';
 import volumeMute from './volume-muted.svg';
 import menu from './menu.svg';
 import share from './share.svg';
-import cityIcon from './noises/city.svg';
-import cityRainIcon from './noises/city-rain.svg';
-import fireplaceIcon from './noises/fireplace.svg';
-import campfireIcon from './noises/campfire.svg';
-import forestIcon from './noises/forest.svg';
-import forestRainIcon from './noises/forest-rain.svg';
-import wavesIcon from './noises/waves.svg';
-import fanIcon from './noises/fan.svg';
-import stormIcon from './noises/storm.svg';
-import riverIcon from './noises/river.svg';
-import birdIcon from './noises/bird.svg';
-import peopleTalkingIcon from './noises/people.svg';
-import windIcon from './noises/wind.svg';
-import oceanIcon from './noises/ocean.svg';
-import snowIcon from './noises/snow.svg';
-import keyboardIcon from './noises/keyboard.svg';
+
 import contactIcon from './contactIcon.svg';
 import faqIcon from './faqIcon.svg';
 import feedback from './feedback.svg';
@@ -60,6 +45,44 @@ import playlist from './playlist.svg';
 import settingIcon from './settingIcon.svg';
 import menuRounded from './lateralMenu/menu-rounded.svg';
 import premiumIcon from './lateralMenu/premium.svg';
+
+// ----------noise icons-----------------------
+import cityIcon from './noises/city.svg';
+import cityActive from './noises/city_active.svg';
+import rainCityIcon from './noises/rain_city.svg';
+import rainCityActive from './noises/rain_city_active.svg';
+import fireplaceIcon from './noises/fireplace.svg';
+import fireplaceActive from './noises/fireplace_active.svg';
+import campfireIcon from './noises/campfire.svg';
+import campfireActiveIcon from './noises/campfire_active.svg';
+import forestIcon from './noises/forest.svg';
+import forestActive from './noises/forest_active.svg';
+import rainForestIcon from './noises/rain_forest.svg';
+import rainForestActive from './noises/rain_forest_active.svg';
+import wavesIcon from './noises/waves.svg';
+import wavesActive from './noises/waves_active.svg';
+import fanIcon from './noises/fan.svg';
+import fanActive from './noises/fan_active.svg';
+import stormIcon from './noises/storm.svg';
+import stormActive from './noises/storm_active.svg';
+import riverIcon from './noises/river.svg';
+import riverActive from './noises/river_active.svg';
+import birdIcon from './noises/bird.svg';
+import birdActive from './noises/bird_active.svg';
+import peopleIcon from './noises/people.svg';
+import peopleActive from './noises/people_active.svg';
+import windIcon from './noises/wind.svg';
+import windActive from './noises/wind_active.svg';
+import oceanIcon from './noises/ocean.svg';
+import oceanActive from './noises/ocean_active.svg';
+import snowIcon from './noises/snow.svg';
+import snowActive from './noises/snow_active.svg';
+import keyboardIcon from './noises/keyboard.svg';
+import keyboardActive from './noises/keyboard_active.svg';
+import spaceIcon from './noises/space.svg';
+import spaceActive from './noises/space_active.svg';
+import underwaterActive from './noises/underwater_active.svg';
+import underwaterIcon from './noises/underwater.svg';
 
 export {
     volumeActive,
@@ -99,21 +122,41 @@ export {
     volumeMinIcon,
     xIcon,
     cityIcon,
-    cityRainIcon,
+    cityActive,
+    rainCityIcon,
+    rainCityActive,
     fireplaceIcon,
+    fireplaceActive,
     campfireIcon,
+    campfireActiveIcon,
     forestIcon,
-    forestRainIcon,
+    forestActive,
+    rainForestIcon,
+    rainForestActive,
     wavesIcon,
+    wavesActive,
     fanIcon,
+    fanActive,
     stormIcon,
+    stormActive,
     riverIcon,
+    riverActive,
     birdIcon,
-    peopleTalkingIcon,
+    birdActive,
+    peopleIcon,
+    peopleActive,
     windIcon,
+    windActive,
     oceanIcon,
+    oceanActive,
     snowIcon,
+    snowActive,
     keyboardIcon,
+    keyboardActive,
+    spaceIcon,
+    spaceActive,
+    underwaterActive,
+    underwaterIcon,
     share,
     contactIcon,
     faqIcon,

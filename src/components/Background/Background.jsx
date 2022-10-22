@@ -3,17 +3,17 @@ import ReactPlayer from 'react-player';
 
 import SceneActions from './SceneActions';
 import useStore from '~/hooks/useStore';
-import { setSceneAndSet } from '~/Store/session/';
+import { setSceneAndSet } from '~/store/session';
 import { useSelector } from '~/hooks/useSelector';
-import { SessionSelect } from '~/Store/session';
+import { SessionSelect } from '~/store/session';
 import classNames from 'classnames/bind';
 
 import styles from './Background.module.scss';
 const cx = classNames.bind(styles);
 
 function Background() {
-    const { background } = useStore();
-    const [backgroundState, backgroundDispatch] = background;
+    const { session } = useStore();
+    const [sessionState, sessionDispatch] = session;
     const video1 = useRef();
     const video2 = useRef();
 
@@ -25,7 +25,6 @@ function Background() {
 
     const currentScene = useSelector(SessionSelect.getScene);
     useEffect(() => {
-        console.log('useEffect call');
         if (active === 1) {
             const noPending = sourceVideo === sourceVideo2;
             setSourceVideo2(sourceVideo);
@@ -42,8 +41,8 @@ function Background() {
 
     const handleNextScene = () => {
         const newSceneIndex =
-            backgroundState.set.scenes.length === backgroundState.sceneIndex + 1 ? 0 : backgroundState.sceneIndex + 1;
-        backgroundDispatch(setSceneAndSet({ set: backgroundState.set, sceneIndex: newSceneIndex }));
+            sessionState.set.scenes.length === sessionState.sceneIndex + 1 ? 0 : sessionState.sceneIndex + 1;
+        sessionDispatch(setSceneAndSet({ set: sessionState.set, sceneIndex: newSceneIndex }));
     };
 
     return (

@@ -3,29 +3,21 @@ import { useState } from 'react';
 import Switch from 'react-switch';
 
 import { logoGif, pixelModeOff, pixelModeOn } from '~/assets/images';
-import {
-    share,
-    volumeActive,
-    volumeMute,
-    menu,
-    fullscreenIcon,
-    sunIcon,
-    moonIcon,
-} from '~/assets/icons';
+import { share, volumeActive, volumeMute, menu, fullscreenIcon, sunIcon, moonIcon } from '~/assets/icons';
 import Button from '~/components/Button';
 import SettingMenu from '~/components/SettingMenu';
 import { MENU_ITEMS } from '~/constants';
 import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
-import { SessionSelect, setSceneNight, setScenePixel } from '~/Store/session';
+import { SessionSelect, setSceneNight, setScenePixel } from '~/store/session';
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-    const { setModalType, background } = useStore();
-    const [, backgroundDispatch] = background;
+    const { setModalType, session } = useStore();
+    const [, sessionDispatch] = session;
 
     const nightMode = useSelector(SessionSelect.nightMode);
     const pixelMode = useSelector(SessionSelect.pixelMode);
@@ -72,7 +64,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <div className={cx('header-logo')}>
                     <img src={logoGif} alt="logo" style={{ height: 100 }} />
                 </div>
                 <div className={cx('actions')}>
@@ -83,7 +75,7 @@ function Header() {
                             <Switch
                                 checked={!nightMode}
                                 onChange={() => {
-                                    backgroundDispatch(setSceneNight());
+                                    sessionDispatch(setSceneNight());
                                 }}
                                 offColor="#bfbfbf"
                                 onColor="#f3a952"
@@ -110,7 +102,7 @@ function Header() {
                         <div
                             className={cx('toggle-pixel')}
                             onClick={() => {
-                                backgroundDispatch(setScenePixel());
+                                sessionDispatch(setScenePixel());
                             }}
                         >
                             {pixelMode ? (
@@ -132,6 +124,7 @@ function Header() {
                             type="premium"
                             emoji={{ symbol: '🚀', label: 'rocket' }}
                             onClick={() => setModalType('Pricing')}
+                            className="hideMobile"
                         >
                             <p>
                                 Access +20 scenes
@@ -139,20 +132,20 @@ function Header() {
                             </p>
                         </Button>
                     )}
-                    <Button type="transparent" className={cx('signUp-btn')}>
+                    <Button type="transparent" className={cx('signUp-btn', 'hideMobile')}>
                         Sign up
                     </Button>
-                    <button className={cx('actionBtn')} onClick={() => setModalType('Share')}>
+                    <button className={cx('actionBtn', 'hideMobile')} onClick={() => setModalType('Share')}>
                         <img src={share} alt="share" />
                     </button>
-                    <button className={cx('actionBtn')}>
+                    <button className={cx('actionBtn', 'hideMobile')}>
                         {true ? (
                             <img src={volumeActive} alt="volumeActive" />
                         ) : (
                             <img src={volumeMute} alt="volumeMute" />
                         )}
                     </button>
-                    <button className={cx('actionBtn')} onClick={handleFullScreen}>
+                    <button className={cx('actionBtn', 'hideMobile')} onClick={handleFullScreen}>
                         <img src={fullscreenIcon} alt="fullscreenIcon" />
                     </button>
                     <SettingMenu items={MENU_ITEMS}>

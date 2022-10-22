@@ -5,10 +5,11 @@ import { followCursor } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/material.css';
 
-import { focusIcon, moodIcon, setIcon, templateIcon } from '~/assets/icons';
-import styles from './LateralMenu.module.scss';
+import { focusIcon, menuRounded, moodIcon, setIcon, templateIcon } from '~/assets/icons';
+import Mixer from './Mixer';
 import SceneSelector from './SceneSelector';
 import { useStore } from '~/hooks';
+import styles from './LateralMenu.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -40,11 +41,17 @@ function LateralMenu() {
     return (
         <>
             <div className={cx('wrapper')} id="lateralMenu">
+                {/* Show menu item */}
                 {menuActive === 'SceneSelector' && <SceneSelector />}
+                {menuActive === 'Mixer' && <Mixer />}
+
+                {/* lateral menu */}
                 <div className={cx('lateral-menu')}>
+                    {menuActive === 'Mixer' && <img src={menuRounded} alt="menuRounded" className={cx('rounded-top')}/>
+}
                     <Tooltip content="Mixer">
-                        <div className={cx('menu-item')}>
-                            <ReactSVG src={moodIcon} alt="mixer" />
+                        <div className={cx('menu-item')} onClick={() => handleSelect('Mixer')}>
+                            <ReactSVG src={moodIcon} alt="mixer" className={menuActive === 'Mixer' ? cx('svg') : ''} />
                         </div>
                     </Tooltip>
                     <Tooltip content="Templates">

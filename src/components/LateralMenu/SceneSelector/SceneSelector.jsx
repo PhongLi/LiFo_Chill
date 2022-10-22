@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { sets } from '~/assets/data/sets.data';
 import { arrowLeftIcon, premiumIcon } from '~/assets/icons';
-import {setSceneAndSet} from '~/Store/session/'
+import { setSceneAndSet } from '~/store/session';
 import useStore from '~/hooks/useStore';
 import Button from '~/components/Button';
 
@@ -15,33 +15,41 @@ function SceneSelector() {
     const [selectedSet, setSelectedSet] = useState();
 
     // getSetAndScenes
-    const { background } = useStore();
-    const [backgroundState, backgroundDispatch] = background;
-    
-    const currentSet = backgroundState.set;
-    const isLogin = false; 
+    const { session } = useStore();
+    const [sessionState, sessionDispatch] = session;
 
+    const currentSet = sessionState.set;
+    const isLogin = false;
 
     const handleChangeScene = (set, sceneIndex) => {
-        backgroundDispatch(setSceneAndSet({set, sceneIndex}))
-
-    }
+        sessionDispatch(setSceneAndSet({ set, sceneIndex }));
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('scenes-container')}>
                 {selectedSet ? (
                     <>
-                        {!isLogin && selectedSet.premium && <div className={cx('premium-banner')}>
-                            <h4>Please <span className={cx('accent')}>sign in</span> to use this set</h4>
-                            <Button type={"rounded"} className={cx('login-btn')}>Sign in</Button>
-                        </div>}
-                        
+                        {!isLogin && selectedSet.premium && (
+                            <div className={cx('premium-banner')}>
+                                <h4>
+                                    Please <span className={cx('accent')}>sign in</span> to use this set
+                                </h4>
+                                <Button type={'rounded'} className={cx('login-btn')}>
+                                    Sign in
+                                </Button>
+                            </div>
+                        )}
+
                         <div className={cx('scenes-nav')}>
                             <img src={arrowLeftIcon} alt="back" onClick={() => setSelectedSet(undefined)} />
                             <h5 className={cx('title')}>Switch scene</h5>
                         </div>
                         {selectedSet.scenes.map((scene, index) => (
-                            <div className={cx('scene-selector')} key={'s' + index} onClick={() => handleChangeScene(selectedSet, index)}>
+                            <div
+                                className={cx('scene-selector')}
+                                key={'s' + index}
+                                onClick={() => handleChangeScene(selectedSet, index)}
+                            >
                                 <img
                                     src={scene.thumbnail}
                                     alt="thumbnail"

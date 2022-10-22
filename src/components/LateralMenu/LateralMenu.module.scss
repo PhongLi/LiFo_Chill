@@ -1,3 +1,4 @@
+$menu-width: 60px;
 .wrapper {
     display: flex;
     justify-content: flex-end;
@@ -6,12 +7,13 @@
     width: 100vw;
     
     .lateral-menu {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         min-height: 252px;
-        width: 60px;
+        width: $menu-width;
         padding: 18px 0;
         margin-right: 20px;
         border-radius: 8px;
@@ -23,12 +25,20 @@
             justify-content: center;
             align-items: center;
             height: 55px;
-            width: 60px;
+            width: $menu-width;
             cursor: pointer;
 
         }
         .svg * {
             fill: var(--color-primary);
+        }
+        .rounded-top {
+            position: absolute;
+            top: -19px;
+            width: $menu-width;
+            right: 4px;
+            transform: rotateX(180deg);
+            z-index: -1;
         }
     }
 }

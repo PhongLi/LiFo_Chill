@@ -16,7 +16,6 @@ import {
 import { scenes } from './scenes.data';
 
 export const sets = [
-  
     {
         _id: 'book_cafe',
         thumbnail: bookCafe,
@@ -25,7 +24,6 @@ export const sets = [
         effects: ['city', 'rain_street', 'keyboard'],
         premium: false,
     },
-    
 
     {
         _id: 'dreaming',
@@ -96,7 +94,7 @@ export const sets = [
         thumbnail: cafeThumb,
         name: 'Lofi cafè',
         scenes: [scenes.cafeInside, scenes.cafeOutside],
-        effects: ['city', 'rain_street', 'people', 'rain_window'],
+        effects: ['city', 'rain_street', 'people'],
         premium: false,
     },
     {
