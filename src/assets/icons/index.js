@@ -84,7 +84,22 @@ import spaceActive from './noises/space_active.svg';
 import underwaterActive from './noises/underwater_active.svg';
 import underwaterIcon from './noises/underwater.svg';
 
+//player icon
+import nextTrackIcon from './player/next.svg';
+import prevTrackIcon from './player/prev.svg';
+import playTrackIcon from './player/play.svg';
+import pauseTrackIcon from './player/pause.svg';
+
+import eye1 from './eye1.svg';
+import eye2 from './eye2.svg';
+
 export {
+    eye1,
+    eye2,
+    prevTrackIcon,
+    playTrackIcon,
+    pauseTrackIcon,
+    nextTrackIcon,
     volumeActive,
     volumeMute,
     menu,

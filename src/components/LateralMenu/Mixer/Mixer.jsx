@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import ReactSlider from 'react-slider';
-import { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 
 import { chillIcon, jazzyIcon, sleepyIcon, volumeMaxIcon, volumeMinIcon } from '~/assets/icons';

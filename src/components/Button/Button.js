@@ -24,7 +24,6 @@ function Button({
         onClick,
         ...passProps,
     };
-
     if (disabled) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && props[key] === 'function') {

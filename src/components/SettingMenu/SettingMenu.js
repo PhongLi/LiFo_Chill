@@ -10,17 +10,24 @@ const cx = classNames.bind(styles);
 
 function SettingMenu({ items = [], children }) {
     const { setModalType } = useStore();
-
+    const loggedIn = false;
+    const getListItems = () => {
+        if (loggedIn) {
+            return items.filter((e) => e.id !== 1);
+        } else return items.filter((e) => e.id !== 0);
+    };
     const renderItems = () =>
-        items.map((item, index) => {
-            const Icon = item.icon;
+        getListItems().map((item, index) => {
             const handleClick = () => {
-                if (['Tutorial', 'AboutUs'].includes(item.modal)) {
+                if (item.modal) {
                     setModalType(item.modal);
+                } else if(item.action) {
+                   (item.action)()
                 } else {
                     console.log(item);
                 }
             };
+            const Icon = item.icon;
 
             return (
                 <Button key={index} leftIcon={Icon} to={item.to} className={cx('menu-item')} onClick={handleClick}>

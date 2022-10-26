@@ -1,0 +1,101 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 5%;
+    top: 0;
+    z-index: 99999999;
+
+    .pos {
+        top: 30px;
+        right: 20px;
+    }
+    .login-form {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex-direction: column;
+
+        .logoGif {
+            height: 130px;
+            margin-bottom: 32px;
+        }
+        .greeting {
+            font-size: 4.6rem;
+            line-height: 4.6rem;
+            margin: 1.6rem 0;
+        }
+        h4 {
+            font-size: 2rem;
+            line-height: 2.4rem;
+        }
+    }
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .accent {
+        color: var(--color-primary);
+        font-size: 1.6rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .login-btn {
+        margin: 16px 0;
+    }
+    .sign-up-option {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 32px 0;
+        p {
+            font-size: 1.6rem;
+            margin-left: 4px;
+        }
+    }
+}
+.form-group {
+    background-color: #121212 !important;
+    border-radius: 8px;
+    max-width: 100%;
+    width: 400px;
+    margin: 32px 0;
+    overflow: hidden;
+
+    .form-control {
+        display: flex;
+        flex-direction: row;
+
+        .login-input {
+            flex: 1 1;
+            height: 60px;
+            margin: 0 4px;
+            border-radius: 2px;
+            background-color: #ffffff00;
+            border: 2px solid var(--color-clear);
+            box-sizing: border-box;
+            caret-color: var(--color-primary);
+            color: var(--color-default);
+            font-size: 1.6rem;
+            font-weight: 500;
+            outline: none;
+            padding: 4px 16px;
+            transition: all 0.3s ease;
+
+            &:focus + div {
+                opacity: 1;
+            }
+        }
+
+        div {
+            width: 4px;
+            transition: all 0.2s ease-in-out;
+            background-color: var(--color-primary);
+            opacity: 0;
+        }
+    }
+}

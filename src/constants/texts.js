@@ -1,14 +1,4 @@
-import {
-    profileIcon,
-    faqIcon,
-    feedback,
-    infos,
-    infoIcon,
-    playlist,
-    settingIcon,
-    contactIcon,
-} from '~/assets/icons';
-
+import { profileIcon, faqIcon, feedback, infos, infoIcon, playlist, settingIcon, contactIcon } from '~/assets/icons';
 
 export const Titles = [
     {
@@ -48,42 +38,57 @@ export const ABOUT_US = {
     about2: 'We are constantly improving, make sure to follow our socials to stay updated!',
 };
 
-export  const MENU_ITEMS = [
+export const MENU_ITEMS = [
     {
+        id: 0,
         title: 'User settings',
         icon: profileIcon,
     },
     {
+        id: 1,
+        title: 'Login/Sign up',
+        icon: profileIcon,
+        modal: 'Login',
+    },
+    {
+        id: 2,
         title: 'General settings',
         icon: settingIcon,
     },
     {
+        id: 3,
         title: 'Contact us',
         icon: contactIcon,
         to: '/contact',
     },
     {
+        id: 4,
         title: 'How it works',
         icon: infos,
         modal: 'Tutorial',
     },
     {
+        id: 5,
         title: 'FAQ',
         icon: faqIcon,
         to: '/faq',
     },
     {
+        id: 6,
         title: 'Music',
         icon: playlist,
         to: '/music',
     },
     {
+        id: 7,
         title: 'About us',
         icon: infoIcon,
         modal: 'AboutUs',
     },
     {
+        id: 8,
         title: 'Share feedback',
         icon: feedback,
+        action: () => window.open('https://airtable.com/shrDWZLVdKhXg4uiA', '__bank'),
     },
 ];

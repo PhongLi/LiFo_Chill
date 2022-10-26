@@ -11,6 +11,8 @@ import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
 import { SessionSelect, setSceneNight, setScenePixel } from '~/store/session';
 import styles from './Header.module.scss';
+import MiniPlayerBar from './MiniPlayerBar';
+import Clock from './Clock';
 
 const cx = classNames.bind(styles);
 
@@ -68,8 +70,9 @@ function Header() {
                     <img src={logoGif} alt="logo" style={{ height: 100 }} />
                 </div>
                 <div className={cx('actions')}>
-                    <Button type="transparent">11:38 PM</Button>
-                    {/* toggle day night */}
+                    {/* clock show time */}
+                    <Clock />
+                    {/* button toggle day night */}
                     {hasNightVersion && (
                         <div className={cx('toggle-weather')}>
                             <Switch
@@ -132,9 +135,9 @@ function Header() {
                             </p>
                         </Button>
                     )}
-                    <Button type="transparent" className={cx('signUp-btn', 'hideMobile')}>
+                    {/* <Button type="transparent" className={cx('signUp-btn', 'hideMobile')}>
                         Sign up
-                    </Button>
+                    </Button> */}
                     <button className={cx('actionBtn', 'hideMobile')} onClick={() => setModalType('Share')}>
                         <img src={share} alt="share" />
                     </button>
@@ -148,6 +151,10 @@ function Header() {
                     <button className={cx('actionBtn', 'hideMobile')} onClick={handleFullScreen}>
                         <img src={fullscreenIcon} alt="fullscreenIcon" />
                     </button>
+                    {/* mini player bar */}
+                    <MiniPlayerBar />
+
+                    {/* Menu */}
                     <SettingMenu items={MENU_ITEMS}>
                         <button className={cx('actionBtn')}>
                             <img src={menu} alt="menu" />

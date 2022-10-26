@@ -8,6 +8,7 @@ import AudioPlayer from '~/components/AudioPlayer';
 
 const cx = classNames.bind(styles);
 function Main() {
+
     return (
         <div className={cx('wrapper')}>
             <Background />
@@ -15,6 +16,7 @@ function Main() {
             <EffectsBoard />
             <LateralMenu />
             <AudioPlayer />
+            
         </div>
     );
 }
