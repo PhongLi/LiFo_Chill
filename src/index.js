@@ -6,12 +6,16 @@ import GlobalStyles from '~/components/GlobalStyles';
 
 import { AppProvider } from './store/session';
 import './index.css';
+import { AuthProvider } from './store/user';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <GlobalStyles>
-        <AppProvider>
-            <App />
-        </AppProvider>
+            <AuthProvider>
+                <AppProvider>
+                    <App />
+                </AppProvider>
+            </AuthProvider>
     </GlobalStyles>,
 );
 

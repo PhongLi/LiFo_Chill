@@ -47,8 +47,9 @@ function LateralMenu() {
 
                 {/* lateral menu */}
                 <div className={cx('lateral-menu')}>
-                    {menuActive === 'Mixer' && <img src={menuRounded} alt="menuRounded" className={cx('rounded-top')}/>
-}
+                    {menuActive === 'Mixer' && (
+                        <img src={menuRounded} alt="menuRounded" className={cx('rounded-top')} />
+                    )}
                     <Tooltip content="Mixer">
                         <div className={cx('menu-item')} onClick={() => handleSelect('Mixer')}>
                             <ReactSVG src={moodIcon} alt="mixer" className={menuActive === 'Mixer' ? cx('svg') : ''} />

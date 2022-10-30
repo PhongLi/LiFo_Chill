@@ -18,7 +18,7 @@ const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-    const { setModalType, session } = useStore();
+    const { setModalType, session, currentUser } = useStore();
     const [, sessionDispatch] = session;
 
     const nightMode = useSelector(SessionSelect.nightMode);
@@ -122,7 +122,7 @@ function Header() {
                     )}
 
                     {/* fullscreen button */}
-                    {!fullscreen && (
+                    {!fullscreen && !currentUser && (
                         <Button
                             type="premium"
                             emoji={{ symbol: '🚀', label: 'rocket' }}

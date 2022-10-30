@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import ReactPlayer from 'react-player';
 
 import SceneActions from './SceneActions';
@@ -17,11 +17,11 @@ function Background() {
     const video1 = useRef();
     const video2 = useRef();
 
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState();
     const [isPending, setIsPending] = useState();
     const sourceVideo = useSelector(SessionSelect.getSceneSource);
     const [sourceVideo1, setSourceVideo1] = useState(sourceVideo);
-    const [sourceVideo2, setSourceVideo2] = useState();
+    const [sourceVideo2, setSourceVideo2] = useState(sourceVideo);
 
     const currentScene = useSelector(SessionSelect.getScene);
     useEffect(() => {
@@ -82,4 +82,4 @@ function Background() {
     );
 }
 
-export default Background;
+export default memo(Background);

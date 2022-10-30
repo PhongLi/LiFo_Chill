@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { Transition, Dialog } from '@headlessui/react';
-import { useLocation } from 'react-router-dom';
 import React, { Fragment } from 'react';
 
 import styles from './DefaultModal.module.scss';
@@ -9,15 +8,15 @@ import AboutUs from '~/components/AboutUs';
 import Share from '~/components/Share';
 import Pricing from '~/components/Pricing';
 import { useStore } from '~/hooks';
-import Login from '../Login';
-import SignUp from '../SignUp';
+import Profile from '~/components/Profile';
 
 const cx = classNames.bind(styles);
 
 function DefaultModal() {
     const { modalType, setModalType } = useStore();
-    const query = new URLSearchParams(useLocation().search);
-    const closeModal = () => setModalType(null);
+    const closeModal = (e) => {
+        setModalType(null);
+    };
 
     return (
         <Transition show={!!modalType} as={Fragment}>
@@ -37,12 +36,11 @@ function DefaultModal() {
                                    ${
                                        ['Tutorial', 'AboutUs'].includes(modalType)
                                            ? 'bg-black/70 backdrop-blur-xl'
-                                           : ['Login', 'SignUp'].includes(modalType)
-                                           ? 'bg-black/80'
                                            : 'bg-black/50'
                                    }
                                `}
                         aria-hidden="true"
+                        onClick={closeModal}
                     />
                 </Transition.Child>
 
@@ -60,8 +58,7 @@ function DefaultModal() {
                         {modalType === 'AboutUs' && <AboutUs onClose={closeModal} />}
                         {modalType === 'Share' && <Share onClose={closeModal} />}
                         {modalType === 'Pricing' && <Pricing onClose={closeModal} />}
-                        {modalType === 'Login' && <Login onClose={closeModal} changePage={()=>setModalType('SignUp')}/>}
-                        {modalType === 'SignUp' && <SignUp onClose={closeModal} changePage={()=>setModalType('Login')}/>}
+                        {modalType === 'Profile' && <Profile onClose={closeModal} />}
                     </div>
                 </Transition.Child>
             </Dialog>

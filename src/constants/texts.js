@@ -43,12 +43,12 @@ export const MENU_ITEMS = [
         id: 0,
         title: 'User settings',
         icon: profileIcon,
+        modal: 'Profile'
     },
     {
         id: 1,
         title: 'Login/Sign up',
         icon: profileIcon,
-        modal: 'Login',
     },
     {
         id: 2,

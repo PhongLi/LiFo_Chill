@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 import { useStore } from '~/hooks';
 import Button from '~/components/Button';
@@ -9,8 +10,10 @@ import styles from './SettingMenu.module.scss';
 const cx = classNames.bind(styles);
 
 function SettingMenu({ items = [], children }) {
-    const { setModalType } = useStore();
-    const loggedIn = false;
+    const { setModalType, currentUser } = useStore();
+    const loggedIn = !!currentUser;
+    const navigate = useNavigate();
+
     const getListItems = () => {
         if (loggedIn) {
             return items.filter((e) => e.id !== 1);
@@ -21,8 +24,10 @@ function SettingMenu({ items = [], children }) {
             const handleClick = () => {
                 if (item.modal) {
                     setModalType(item.modal);
-                } else if(item.action) {
-                   (item.action)()
+                } else if (item.action) {
+                    item.action();
+                } else if (item.id === 1) {
+                    navigate("?auth=login")
                 } else {
                     console.log(item);
                 }

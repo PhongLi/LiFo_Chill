@@ -1,4 +1,9 @@
+:global .fade-in {
+    animation: fade-in 0.4s linear;
+    animation-fill-mode: both;
+}
 .wrapper {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,7 +13,9 @@
     padding-top: 2%;
     top: 0;
     z-index: 99999999;
+    background-color: #000c;
 
+    
     .pos {
         top: 30px;
         right: 20px;
@@ -57,9 +64,9 @@
             margin-left: 4px;
         }
     }
-    .privacy{
+    .privacy {
         font-size: 1.2rem;
-        text-align: center;    
+        text-align: center;
     }
 }
 .form-group {
@@ -102,7 +109,7 @@
             right: 32px;
             cursor: pointer;
             &:hover {
-                opacity: .3;
+                opacity: 0.3;
             }
         }
 
@@ -112,6 +119,5 @@
             background-color: var(--color-primary);
             opacity: 0;
         }
-
     }
 }

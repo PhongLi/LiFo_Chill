@@ -9,17 +9,17 @@ import useStore from '~/hooks/useStore';
 import Button from '~/components/Button';
 
 import styles from './SceneSelector.module.scss';
+import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function SceneSelector() {
     const [selectedSet, setSelectedSet] = useState();
 
     // getSetAndScenes
-    const { session } = useStore();
+    const { session, currentUser, setMenuActive } = useStore();
     const [sessionState, sessionDispatch] = session;
-
+    const navigate = useNavigate();
     const currentSet = sessionState.set;
-    const isLogin = false;
 
     const handleChangeScene = (set, sceneIndex) => {
         sessionDispatch(setSceneAndSet({ set, sceneIndex }));
@@ -29,12 +29,19 @@ function SceneSelector() {
             <div className={cx('scenes-container')}>
                 {selectedSet ? (
                     <>
-                        {!isLogin && selectedSet.premium && (
+                        {!currentUser && selectedSet.premium && (
                             <div className={cx('premium-banner')}>
                                 <h4>
                                     Please <span className={cx('accent')}>sign in</span> to use this set
                                 </h4>
-                                <Button type={'rounded'} className={cx('login-btn')}>
+                                <Button
+                                    type={'rounded'}
+                                    className={cx('login-btn')}
+                                    onClick={() => {
+                                        navigate('?auth=login');
+                                        setMenuActive(undefined);
+                                    }}
+                                >
                                     Sign in
                                 </Button>
                             </div>
@@ -84,7 +91,7 @@ function SceneSelector() {
                                             set === currentSet ? '1' : '0.5';
                                     }}
                                 />
-                                {!isLogin && set.premium && (
+                                {!currentUser && set.premium && (
                                     <div className={cx('premium')}>
                                         <ReactSVG src={premiumIcon} alt="premium" />
                                     </div>

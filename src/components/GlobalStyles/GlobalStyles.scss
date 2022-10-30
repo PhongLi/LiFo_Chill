@@ -100,3 +100,13 @@ body {
         }
     }
 }
+
+// animation
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+}
