@@ -37,6 +37,7 @@ function Button({
     } else if (href) {
         Comp = 'a';
         props.href = href;
+        props.target = '_blank';
     }
     const classes = cx('wrapper', {
         [className]: className,

@@ -1,4 +1,4 @@
-import { profileIcon, faqIcon, feedback, infos, infoIcon, playlist, settingIcon, contactIcon } from '~/assets/icons';
+import { profileIcon, faqIcon, feedback, infos, infoIcon, playlist, settingIcon, contactIcon, price } from '~/assets/icons';
 
 export const Titles = [
     {
@@ -55,29 +55,29 @@ export const MENU_ITEMS = [
         title: 'General settings',
         icon: settingIcon,
     },
-    {
-        id: 3,
-        title: 'Contact us',
-        icon: contactIcon,
-        to: '/contact',
-    },
+    // {
+    //     id: 3,
+    //     title: 'Contact us',
+    //     icon: contactIcon,
+    //     // to: '/contact',
+    // },
     {
         id: 4,
         title: 'How it works',
         icon: infos,
         modal: 'Tutorial',
     },
-    {
-        id: 5,
-        title: 'FAQ',
-        icon: faqIcon,
-        to: '/faq',
-    },
+    // {
+    //     id: 5,
+    //     title: 'FAQ',
+    //     icon: faqIcon,
+    //     // to: '/faq',
+    // },
     {
         id: 6,
-        title: 'Music',
-        icon: playlist,
-        to: '/music',
+        title: 'Pricing',
+        icon: price,
+        modal: 'Pricing',
     },
     {
         id: 7,

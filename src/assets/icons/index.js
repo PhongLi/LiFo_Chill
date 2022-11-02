@@ -35,6 +35,7 @@ import volumeActive from './volume-active.svg';
 import volumeMute from './volume-muted.svg';
 import menu from './menu.svg';
 import share from './share.svg';
+import price from './price.svg';
 
 import contactIcon from './contactIcon.svg';
 import faqIcon from './faqIcon.svg';
@@ -173,6 +174,7 @@ export {
     underwaterActive,
     underwaterIcon,
     share,
+    price,
     contactIcon,
     faqIcon,
     feedback,

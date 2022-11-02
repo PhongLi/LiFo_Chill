@@ -8,6 +8,7 @@
     .pos {
         top: 30px;
         right: 20px;
+        z-index: 99999999;
     }
     .profile-modal {
         position: relative;
@@ -46,7 +47,6 @@
                 color: var(--color-primary);
             }
         }
-
 
         //right: content
         .pm-content-wrapper {
@@ -118,11 +118,11 @@
                         border-radius: 4px;
 
                         &:focus {
-                            border: 1px solid #fff4!important;
+                            border: 1px solid #fff4 !important;
                         }
                     }
                 }
-                
+
                 .submit-btn {
                     position: absolute;
                     top: -10px;
