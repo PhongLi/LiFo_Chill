@@ -8,10 +8,10 @@ import LateralMenu from '~/components/LateralMenu';
 import EffectsBoard from '~/components/EffectsBoard';
 import AudioPlayer from '~/components/AudioPlayer';
 import styles from './Main.module.scss';
-import Login from '~/components/Login';
-import SignUp from '~/components/SignUp';
+import Login from '~/pages/Login';
+import SignUp from '~/pages/SignUp';
 import AuthLoading from '~/components/AuthLoading';
-import ForgotPassword from '~/components/ForgotPassword';
+import ForgotPassword from '~/pages/ForgotPassword';
 
 const cx = classNames.bind(styles);
 function Main() {

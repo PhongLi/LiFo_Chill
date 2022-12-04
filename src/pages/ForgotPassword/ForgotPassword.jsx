@@ -5,9 +5,9 @@ import PropsType from 'prop-types';
 import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
 import { setAuthLoading, UserSelect } from '~/store/user';
-import Notification from '../Notification';
+import Notification from '../../components/Notification';
 import { logoGif } from '~/assets/images';
-import Button, { ButtonClose } from '../Button';
+import Button, { ButtonClose } from '../../components/Button';
 import styles from './ForgotPassword.module.scss';
 
 const cx = classNames.bind(styles);
@@ -17,7 +17,6 @@ function ForgotPassword({ onClose, changePage }) {
     const [, userDispatch] = user;
     const [email, setEmail] = useState('');
     const [alert, setAlert] = useState({ message: '', severity: 'info' });
-
 
     const authLoadingStatus = useSelector(UserSelect.getAuthLoadingStatus);
 

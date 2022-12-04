@@ -6,9 +6,9 @@ import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
 import { setAuthLoading, UserSelect } from '~/store/user';
 import { logoGif } from '~/assets/images';
-import Button, { ButtonClose } from '../Button';
+import Button, { ButtonClose } from '../../components/Button';
 import { eye1, eye2 } from '~/assets/icons';
-import Notification from '../Notification';
+import Notification from '../../components/Notification';
 import styles from './SignUp.module.scss';
 
 const cx = classNames.bind(styles);
