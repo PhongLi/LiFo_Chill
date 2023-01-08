@@ -34,8 +34,16 @@ import spacePW from './spacePW.png';
 import underwaterPW from './underwaterPW.png';
 import honoluluIn from './honoluluIn.png';
 import honoluluOut from './honoluluOut.png';
-
 import honoluluPW from './honoluluPW.png';
+
+import greenHousePW from './greenHousePreview.png';
+import greenHouse from './greenHouse.png';
+import seoulIn from './seoul-inside.png';
+import seoulOut from './seoul-outside.png';
+import seoulPW from './seoulPreview.png';
+import trainPW from './trainJourney.png';
+import trainCity from './trainJourneyCity.png';
+import trainCountry from './trainJourneyCountry.png';
 
 export {
     cafeInPreview,
@@ -75,4 +83,12 @@ export {
     honoluluIn,
     honoluluOut,
     honoluluPW,
+    greenHousePW,
+    greenHouse,
+    seoulIn,
+    seoulOut,
+    seoulPW,
+    trainPW,
+    trainCity,
+    trainCountry,
 };

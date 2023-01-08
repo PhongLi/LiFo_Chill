@@ -27,7 +27,6 @@
     .pos {
         top: 20px;
         right: 20px;
-        z-index: 50;
         z-index: 99999999;
     }
     h3 {
@@ -52,9 +51,8 @@
     padding: 16px;
     z-index: 20;
     .options {
-        @include flex-row;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
+        flex-direction: row;
 
         p {
             font-size: 1.4rem;
@@ -86,7 +84,6 @@
 
     .feature {
         @include flex-row;
-
         margin-top: 3px;
         img {
             height: 20px;
@@ -140,7 +137,6 @@
 
 .box {
     @include flex-column;
-
     align-items: center;
     flex: 1 1 0%;
     border-radius: 16px;
@@ -159,7 +155,12 @@
         margin: 16px 0;
         font-weight: 700;
         color: var(--color-primary);
+        span {
+            color: #fff;
+            font-size: 1.5rem;
+        }
     }
+
     .basic-btn {
         width: 100%;
         font-size: 1.4rem;
@@ -168,6 +169,7 @@
         border: 1px solid var(--color-primary);
         color: var(--color-primary);
     }
+
     .premium-btn {
         width: 100%;
         font-size: 1.4rem;

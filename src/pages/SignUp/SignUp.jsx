@@ -81,7 +81,7 @@ function SignUp({ onClose, changePage }) {
                                 <input
                                     id="username"
                                     placeholder="Username"
-                                    className={cx('signUp-input')}
+                                    className={cx('signUp-input', 'separator')}
                                     type="text"
                                     onChange={(e) => {
                                         setUserName(e.target.value);
@@ -94,7 +94,7 @@ function SignUp({ onClose, changePage }) {
                                     required
                                     id="email"
                                     placeholder="Email"
-                                    className={cx('signUp-input')}
+                                    className={cx('signUp-input', 'separator')}
                                     type="email"
                                     onChange={(e) => {
                                         setEmail(e.target.value);

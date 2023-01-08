@@ -101,6 +101,9 @@
             &:focus + div {
                 opacity: 1;
             }
+            &.separator {
+                border-bottom: 1px solid #ffffff17;
+            }
         }
         .hidden-eye {
             width: 14px;

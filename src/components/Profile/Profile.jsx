@@ -21,7 +21,7 @@ function Profile({ onClose }) {
 
     const [alert, setAlert] = useState({ message: '', severity: 'info' });
 
-    const [userState, userDispatch] = user;
+    const [, userDispatch] = user;
 
     const authLoadingStatus = useSelector(UserSelect.getAuthLoadingStatus);
 
@@ -99,6 +99,7 @@ function Profile({ onClose }) {
         setAlert({ ...alert, message: 'Please login again to continue', severity: 'info' });
         handleLogOut();
     }
+
     return (
         <div className={cx('wrapper')}>
             {alert.message && (

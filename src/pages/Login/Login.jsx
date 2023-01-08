@@ -71,7 +71,7 @@ function Login({ onClose, changePage }) {
                                     required
                                     id="email"
                                     placeholder="Email"
-                                    className={cx('login-input')}
+                                    className={cx('login-input', 'separator')}
                                     type="text"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />

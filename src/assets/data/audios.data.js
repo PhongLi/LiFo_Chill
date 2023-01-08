@@ -89,6 +89,16 @@ const effects = [
         name: 'Deep Space',
         url: 'https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/effects/deepspace.mp3',
     },
+    // {
+    //     type: 'train_rain',
+    //     name: 'Window Rain',
+    //     url: 'https://lofi-new.s3.us-east-2.amazonaws.com/Window+rain.mp3',
+    // },
+    // {
+    //     type: 'train_noise',
+    //     name: 'Train',
+    //     url: 'https://lofi-new.s3.us-east-2.amazonaws.com/train.mp3',
+    // },
 ];
 const playlistsBase = {
     chill: [

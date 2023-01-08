@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { ReactSVG } from 'react-svg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { sets } from '~/assets/data/sets.data';
 import { arrowLeftIcon, premiumIcon } from '~/assets/icons';
@@ -9,7 +10,8 @@ import useStore from '~/hooks/useStore';
 import Button from '~/components/Button';
 
 import styles from './SceneSelector.module.scss';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from '~/hooks/useSelector';
+import { getScene, getSet } from '~/store/session/selectors';
 const cx = classNames.bind(styles);
 
 function SceneSelector() {
@@ -17,9 +19,10 @@ function SceneSelector() {
 
     // getSetAndScenes
     const { session, currentUser, setMenuActive } = useStore();
-    const [sessionState, sessionDispatch] = session;
+    const [, sessionDispatch] = session;
     const navigate = useNavigate();
-    const currentSet = sessionState.set;
+    const currentSet = useSelector(getSet);
+    const currentScene = useSelector(getScene);
 
     const handleChangeScene = (set, sceneIndex) => {
         sessionDispatch(setSceneAndSet({ set, sceneIndex }));
@@ -67,6 +70,7 @@ function SceneSelector() {
                                         document.getElementById('thumbnail_' + index).style.opacity = '1';
                                     }}
                                 />
+                                {scene === currentScene && <div className={cx('selected-pop')} />}
                             </div>
                         ))}
                     </>

@@ -11,18 +11,45 @@ import {
     kyoto,
     dreamingScene,
     honoluluPW,
+    greenHousePW,
+    seoulPW,
+    trainPW,
 } from '~/assets/thumbnails';
 
 import { scenes } from './scenes.data';
 
 export const sets = [
     {
+        _id: 'seoul',
+        thumbnail: seoulPW,
+        name: 'Seoul',
+        scenes: [scenes.seoulOutside, scenes.seoulInside],
+        effects: ['keyboard', 'city', 'rain_street'],
+        premium: false,
+    },
+    // {
+    //     _id: 'train_journey',
+    //     thumbnail: trainPW,
+    //     name: 'Train Journey',
+    //     scenes: [scenes.trainJourneyCity, scenes.trainJourneyCountry],
+    //     effects: ['train_rain', 'train_noise', 'keyboard'],
+    //     premium: false,
+    // },
+    {
+        _id: 'green_house',
+        thumbnail: greenHousePW,
+        name: 'Green House',
+        scenes: [scenes.greenHouse],
+        effects: ['rain_forest', 'river', 'birds'],
+        premium: true,
+    },
+    {
         _id: 'book_cafe',
         thumbnail: bookCafe,
         name: 'Book Cafe',
         scenes: [scenes.bookCafeOut, scenes.bookCafeIn],
         effects: ['city', 'rain_street', 'keyboard'],
-        premium: false,
+        premium: true,
     },
 
     {

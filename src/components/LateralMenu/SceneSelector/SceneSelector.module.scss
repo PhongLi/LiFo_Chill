@@ -57,6 +57,16 @@
             right: 5%;
             z-index: 1000;
         }
+
+        .selected-pop {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: 28px;
+            width: 28px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+        }
     }
 
     .scenes-nav {

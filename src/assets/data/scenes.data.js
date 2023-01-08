@@ -25,6 +25,11 @@ import {
     underwaterPW,
     honoluluIn,
     honoluluOut,
+    greenHouse,
+    seoulIn,
+    seoulOut,
+    trainCity,
+    trainCountry,
 } from '~/assets/thumbnails';
 
 // Video Api
@@ -32,8 +37,9 @@ const URL = 'https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/scenes/';
 // Wallpaper Api
 const URLW = 'https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/wallpapers/';
 
+const URL_NEW = 'https://lofi-new.s3.us-east-2.amazonaws.com/';
+
 export const scenes = {
-    
     forestInside: {
         thumbnail: forestInsidePreview,
         wallpaper: URLW + 'Forest+House/forest1.jpg',
@@ -665,4 +671,147 @@ export const scenes = {
             },
         ],
     },
+    greenHouse: {
+        variants: {
+            default: URL_NEW + Videos.greenHouse.greenHouseDay,
+            default_night: URL_NEW + Videos.greenHouse.greenHouseNight,
+            rain_forest: URL_NEW + Videos.greenHouse.greenHouseDayRain,
+            rain_forest_night: URL_NEW + Videos.greenHouse.greenHouseNightRain,
+        },
+        thumbnail: greenHouse,
+        wallpaper: URL_NEW + 'green-house/LOFI.CO+-+GARDEN+-+DAY+-+IMAGE.png',
+
+        actions: [
+            {
+                position: [20, 20],
+                title: 'Forest Rain',
+                type: 'sound',
+                effect: 'rain_forest',
+            },
+            {
+                position: [43, 55],
+                title: 'River',
+                type: 'sound',
+                effect: 'river',
+            },
+            {
+                position: [75, 20],
+                title: 'Birds chirping',
+                type: 'sound',
+                effect: 'birds',
+            },
+        ],
+    },
+    seoulInside: {
+        variants: {
+            default: URL_NEW + Videos.seoul.insideDay,
+            default_night: URL_NEW + Videos.seoul.insideNight,
+            rain_street: URL_NEW + Videos.seoul.insideDayRain,
+            rain_street_night: URL_NEW + Videos.seoul.insideNightRain,
+        },
+        thumbnail: seoulIn,
+        wallpaper: URL_NEW + 'seoul/seoul-indoor.png',
+
+        actions: [
+            {
+                position: [39, 82],
+                title: 'Keyboard',
+                type: 'sound',
+                effect: 'keyboard',
+            },
+            {
+                position: [59, 44],
+                title: 'City Rain',
+                type: 'sound',
+                effect: 'rain_street',
+            },
+        ],
+    },
+    seoulOutside: {
+        variants: {
+            default: URL_NEW + Videos.seoul.outsideDay,
+            default_night: URL_NEW + Videos.seoul.outsideNight,
+            rain_street: URL_NEW + Videos.seoul.outsideDayRain,
+            rain_street_night: URL_NEW + Videos.seoul.outsideNightRain,
+        },
+        thumbnail: seoulOut,
+        wallpaper: URL_NEW + 'seoul/seoul-outdoor.png',
+
+        actions: [
+            {
+                position: [36, 28],
+                title: 'City Rain',
+                type: 'sound',
+                effect: 'rain_street',
+            },
+            {
+                position: [85, 70],
+                title: 'City Traffic',
+                type: 'sound',
+                effect: 'city',
+            },
+        ],
+    },
+    // trainJourneyCity: {
+    //     variants: {
+    //         default: URL_NEW + Videos.train.cityDay,
+    //         train_rain: URL_NEW + Videos.train.cityDayRain,
+    //         default_night: URL_NEW + Videos.train.cityNight,
+    //         train_rain_night: URL_NEW + Videos.train.cityNightRain,
+    //     },
+    //     thumbnail: trainCity,
+    //     wallpaper: URL_NEW + 'Train+set+-+City+Day.png',
+
+    //     actions: [
+    //         {
+    //             position: [25, 27],
+    //             title: 'Window rain',
+    //             type: 'sound',
+    //             effect: 'train_rain',
+    //         },
+    //         {
+    //             position: [64, 68],
+    //             title: 'Train',
+    //             type: 'sound',
+    //             effect: 'train_noise',
+    //         },
+    //         {
+    //             position: [16, 85],
+    //             title: 'Keyboard',
+    //             type: 'sound',
+    //             effect: 'keyboard',
+    //         },
+    //     ],
+    // },
+    // trainJourneyCountry: {
+    //     variants: {
+    //         default: URL_NEW + Videos.train.countryDay,
+    //         train_rain: URL_NEW + Videos.train.countryRainDay,
+    //         default_night: URL_NEW + Videos.train.countryNight,
+    //         train_rain_night: URL_NEW + Videos.train.countryRainNight,
+    //     },
+    //     thumbnail: trainCountry,
+    //     wallpaper: URL_NEW + 'Train+set+-+Country+Day.png',
+
+    //     actions: [
+    //         {
+    //             position: [25, 27],
+    //             title: 'Window rain',
+    //             type: 'sound',
+    //             effect: 'train_rain',
+    //         },
+    //         {
+    //             position: [64, 68],
+    //             title: 'Train',
+    //             type: 'sound',
+    //             effect: 'train_noise',
+    //         },
+    //         {
+    //             position: [16, 85],
+    //             title: 'Keyboard',
+    //             type: 'sound',
+    //             effect: 'keyboard',
+    //         },
+    //     ],
+    // },
 };

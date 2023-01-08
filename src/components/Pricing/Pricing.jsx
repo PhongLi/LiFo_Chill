@@ -1,38 +1,18 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-
-import styles from './Pricing.module.scss';
-import Button, { ButtonClose } from '~/components/Button';
 import Switch from 'react-switch';
+
+import Button, { ButtonClose } from '~/components/Button';
 import { checkIcon, xIcon } from '~/assets/icons';
 import { BASIC_FEATURES, PREMIUM_FEATURES } from '~/constants';
-import { socialMosaic } from '~/assets/images';
+import Carousel from './Carousel';
+import styles from './Pricing.module.scss';
 
 const cx = classNames.bind(styles);
 function Pricing({ onClose }) {
     const [isYearly, setIsYearly] = useState(true);
-    const settings = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        autoplay: true,
-        speed: 100000,
-        autoplaySpeed: 1000,
-        slidesToScroll: 1,
-        slidesToShow: 1,
-        cssEase: 'linear',
-    };
 
-    function Carousel() {
-        return (
-            <Slider {...settings}>
-                <img src={socialMosaic} alt="mosaic" />
-                <img src={socialMosaic} alt="mosaic" />
-            </Slider>
-        );
-    }
     return (
         <div className={cx('Pricing')}>
             <ButtonClose className={cx('pos')} onClick={onClose} />
@@ -93,8 +73,7 @@ function Pricing({ onClose }) {
                     <div className={cx('plan-premium', 'box')}>
                         <h3 className={cx('plan-name')}>Premium</h3>
                         <p className={cx('price')}>
-                            {isYearly ? '$2,99' : '$3.99'}{' '}
-                            <span style={{ color: '#fff', fontSize: '1.5rem' }}>/ mo</span>
+                            {isYearly ? '$2,99' : '$3.99'} <span>/ mo</span>
                         </p>
                         <p className={cx('guarantee-note')}>*7-day money back guarantee</p>
                         <Button type={'rounded'} className={cx('premium-btn')}>

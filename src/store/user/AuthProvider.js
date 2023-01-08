@@ -22,7 +22,7 @@ const AuthContext = createContext();
 function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
-    const [userState, userDispatch] = useReducer(logger(reducer), INITIAL_STATE)
+    const [userState, userDispatch] = useReducer(logger(reducer), INITIAL_STATE);
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (currentUser) => {
@@ -62,8 +62,6 @@ function AuthProvider({ children }) {
         return sendPasswordResetEmail(auth, email);
     };
 
-
-
     const value = {
         createUser,
         currentUser,
@@ -74,11 +72,9 @@ function AuthProvider({ children }) {
         changePassword,
         reauthenticate,
         resetPassword,
-        user: [userState, userDispatch]
+        user: [userState, userDispatch],
     };
-    return (
-        <AuthContext.Provider value={value}>{loading ? <LoadingPage /> : children}</AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={value}>{loading ? <LoadingPage /> : children}</AuthContext.Provider>;
 }
 
 export default AuthProvider;

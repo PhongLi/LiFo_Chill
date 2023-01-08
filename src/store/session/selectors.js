@@ -1,6 +1,9 @@
 export const getScene = (state) => {
     return state.set.scenes[state.sceneIndex];
 };
+export const getSceneIndex = (state) => {
+    return state.sceneIndex;
+};
 export const getSet = (state) => {
     return state.set;
 };

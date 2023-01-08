@@ -4,7 +4,7 @@ import FAQ from '~/pages/FAQ';
 import Music from '~/pages/Music';
 import Price from '~/pages/Price';
 import Updates from '~/pages/Updates';
-import Main from '~/pages/Main';
+import Main from '~/pages/Main/Main';
 import NotFound from '~/pages/NotFound';
 import { PlayerLayout } from '~/layouts/';
 

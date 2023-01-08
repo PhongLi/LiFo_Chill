@@ -19,6 +19,7 @@ function Background() {
 
     const [active, setActive] = useState();
     const [isPending, setIsPending] = useState();
+
     const sourceVideo = useSelector(SessionSelect.getSceneSource);
     const [sourceVideo1, setSourceVideo1] = useState(sourceVideo);
     const [sourceVideo2, setSourceVideo2] = useState(sourceVideo);

@@ -52,7 +52,7 @@ function Carousel({ onClose }) {
                 </div>
                 <div>
                     <video
-                        src="https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tutorial/Video%201%20-%20Mixer.mp4"
+                        src="https://lofi-new.s3.us-east-2.amazonaws.com/tutorial-playlist.mov"
                         muted
                         autoPlay
                         loop
@@ -61,7 +61,7 @@ function Carousel({ onClose }) {
                 </div>
                 <div>
                     <video
-                        src="https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tutorial/hiw-environment.mp4"
+                        src="https://lofi-new.s3.us-east-2.amazonaws.com/tutorial-scenes.mov"
                         muted
                         autoPlay
                         loop
@@ -70,7 +70,7 @@ function Carousel({ onClose }) {
                 </div>
                 <div>
                     <video
-                        src="https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tutorial/hiw-sounds.mp4"
+                        src="https://lofi-new.s3.us-east-2.amazonaws.com/tutorial-sounds.mov"
                         muted
                         autoPlay
                         loop
@@ -79,7 +79,7 @@ function Carousel({ onClose }) {
                 </div>
                 <div>
                     <video
-                        src="https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tutorial/hiw-tools.mp4"
+                        src="https://lofi-new.s3.us-east-2.amazonaws.com/tutorial-tools.mov"
                         muted
                         autoPlay
                         loop

@@ -96,7 +96,7 @@ function reducer(state, action) {
             const effect = newEffects[index];
             effect.level = action.payload.level ?? 0;
             effect.active = effect.level !== 0; // true if level = 1-100
-            newEffects[index] = effect; //replace new effect
+            // newEffects[index] = effect; //replace new effect
             return { ...state, effects: newEffects };
         }
         case 'set_mix_mode': {
@@ -123,7 +123,6 @@ function reducer(state, action) {
             const history_tracks = [...state.history_tracks];
             const currentListTracks = state.customTracks[state.playlist];
             let newTrack;
-
             if (history_pointer === state.history_tracks.length) {
                 let randomNumber = Math.floor(Math.random() * currentListTracks.length);
                 newTrack = currentListTracks[randomNumber];
