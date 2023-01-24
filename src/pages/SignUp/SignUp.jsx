@@ -10,6 +10,7 @@ import Button, { ButtonClose } from '../../components/Button';
 import { eye1, eye2 } from '~/assets/icons';
 import Notification from '../../components/Notification';
 import styles from './SignUp.module.scss';
+import { addUSer } from '~/firebase/services';
 
 const cx = classNames.bind(styles);
 function SignUp({ onClose, changePage }) {
@@ -22,8 +23,6 @@ function SignUp({ onClose, changePage }) {
     const { createUser, changeProfile, user } = useStore();
 
     const [, userDispatch] = user;
-
-    // console.log('userState', userState);
 
     const authLoadingStatus = useSelector(UserSelect.getAuthLoadingStatus);
 
@@ -42,9 +41,15 @@ function SignUp({ onClose, changePage }) {
 
         try {
             userDispatch(setAuthLoading({ status: true }));
-            await createUser(email, password);
+            const { user } = await createUser(email, password);
             await changeProfile(username);
-            await onClose();
+            await addUSer(user.uid, {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+            });
+            onClose();
             window.location.reload();
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -116,7 +121,7 @@ function SignUp({ onClose, changePage }) {
                                 <div />
                                 <img
                                     src={isHidden ? eye2 : eye1}
-                                    alt=""
+                                    alt="eye icon"
                                     className={cx('hidden-eye')}
                                     onClick={() => setHidden(!isHidden)}
                                 />

@@ -9,6 +9,7 @@
     --color-bgd-200: #2828284d;
     --font-family: Roboto, serif;
     --color-clear: #0000;
+    --gradient-half: linear-gradient(360deg, #363636, #363636 40%, rgba(54, 54, 54, 0));
 }
 * {
     margin: 0;
@@ -74,6 +75,7 @@ img video {
     border-style: none;
     vertical-align: middle;
 }
+
 // custom tooltip
 
 body {
@@ -100,13 +102,76 @@ body {
         }
     }
 }
+.general-input {
+    width: 100%;
+    background: var(--color-bgd-200);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-default);
+    caret-color: var(--color-primary);
+    border-radius: 4px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    outline: none;
+    &:focus {
+        border: 1px solid #fff4 !important;
+    }
+}
 
 // animation
 @keyframes fade-in {
     0% {
         opacity: 0;
     }
-    99% {
+    98% {
         opacity: 1;
     }
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slide-bottom {
+    0% {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slide-left {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fade-in 0.4s linear;
+    animation-fill-mode: both;
+}
+
+.slide-right {
+    animation: slide-right 0.4s linear;
+    animation-fill-mode: both;
+}
+.slide-bottom {
+    animation: slide-bottom 0.4s linear;
+    animation-fill-mode: both;
+}
+.slide-left {
+    animation: slide-left 0.4s linear;
+    animation-fill-mode: both;
 }

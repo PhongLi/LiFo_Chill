@@ -105,21 +105,8 @@
                         left: 10px;
                     }
                     input {
-                        background-color: transparent;
-                        caret-color: var(--color-primary);
-                        color: var(--color-default);
-                        font-size: 1.5rem;
-                        font-weight: 400;
-                        border: 1px solid transparent;
-                        outline: none;
-                        width: 100%;
                         min-height: 60px;
                         padding: 20px 10px 0px 12px;
-                        border-radius: 4px;
-
-                        &:focus {
-                            border: 1px solid #fff4 !important;
-                        }
                     }
                 }
 

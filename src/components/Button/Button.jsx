@@ -52,9 +52,9 @@ function Button({
                     {emoji.symbol}
                 </span>
             )}
-            {leftIcon && <img src={leftIcon} className={cx('icon')} alt="" />}
+            {leftIcon && <img src={leftIcon} className={cx('icon')} alt="leftIcon" />}
             <span className={cx('title')}>{children}</span>
-            {rightIcon && <img src={rightIcon} className={cx('icon')} alt="" />}
+            {rightIcon && <img src={rightIcon} className={cx('icon')} alt="rightIcon" />}
         </Comp>
     );
 }

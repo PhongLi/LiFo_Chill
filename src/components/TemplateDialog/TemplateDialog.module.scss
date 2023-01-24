@@ -1,0 +1,53 @@
+.wrapper {
+    position: relative;
+    width: 380px;
+    min-height: 245px;
+    max-width: 100%;
+    background-color: #121212;
+    border-radius: 16px;
+    z-index: 9999999;
+
+    .loading {
+        border-radius: 16px;
+    }
+    .pos {
+        top: 20px;
+        right: 20px;
+    }
+    .inner {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        padding: 24px;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 2.4rem;
+            margin-bottom: 30px;
+        }
+        input {
+            padding: 8px;
+        }
+        .save-btn {
+            margin: 12px 0;
+            border-radius: 16px;
+            width: 100%;
+            img {
+                width: auto;
+                height: auto;
+            }
+        }
+        .cancel-btn {
+            font-weight: 400;
+            color: var(--color-default);
+            opacity: 0.5;
+            align-self: center;
+            margin-left: 0;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

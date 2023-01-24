@@ -9,7 +9,7 @@ import SettingMenu from '~/components/SettingMenu';
 import { MENU_ITEMS } from '~/constants';
 import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
-import { SessionSelect, setSceneNight, setScenePixel } from '~/store/session';
+import { muteUnmuteAll, SessionSelect, setSceneNight, setScenePixel } from '~/store/session';
 import styles from './Header.module.scss';
 import MiniPlayerBar from './MiniPlayerBar';
 import Clock from './Clock';
@@ -18,7 +18,8 @@ const cx = classNames.bind(styles);
 
 function Header() {
     const [fullscreen, setFullscreen] = useState(false);
-    const { setModalType, session } = useStore();
+    const [isMuted, setIsMuted] = useState(false);
+    const { setModalType, session, currentUser } = useStore();
     const [, sessionDispatch] = session;
 
     const nightMode = useSelector(SessionSelect.nightMode);
@@ -29,9 +30,6 @@ function Header() {
 
     const hasNightVersion = !!variants.find((variant) => variant.includes('night'));
     const hasPixelVersion = !!variants.find((variant) => variant.includes('pixel'));
-
-    // console.log('hasNightVersion', hasNightVersion);
-    // console.log('hasPixelVersion', hasPixelVersion);
 
     const checkFullScreen = () => {
         var doc = window.document;
@@ -63,6 +61,10 @@ function Header() {
         }
     };
 
+    const handleMuteUnmuteAll = () => {
+        sessionDispatch(muteUnmuteAll());
+        setIsMuted(!isMuted);
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -89,12 +91,12 @@ function Header() {
                                 activeBoxShadow="0px 0px 0px 0px transparent"
                                 checkedIcon={
                                     <div className={cx('switch-icon')}>
-                                        <img src={sunIcon} alt="" />
+                                        <img src={sunIcon} alt="sunIcon" />
                                     </div>
                                 }
                                 uncheckedIcon={
                                     <div className={cx('switch-icon')}>
-                                        <img src={moonIcon} alt="" />
+                                        <img src={moonIcon} alt="moonIcon" />
                                     </div>
                                 }
                             />
@@ -109,11 +111,11 @@ function Header() {
                             }}
                         >
                             {pixelMode ? (
-                                <img src={pixelModeOn} alt="" className={cx('pixel-icon')} />
+                                <img src={pixelModeOn} alt="pixelModeOn" className={cx('pixel-icon')} />
                             ) : (
                                 <img
                                     src={pixelModeOff}
-                                    alt=""
+                                    alt="pixelModeOff"
                                     className={cx('pixel-icon')}
                                     style={{ filter: 'invert()' }}
                                 />
@@ -122,7 +124,7 @@ function Header() {
                     )}
 
                     {/* fullscreen button */}
-                    {!fullscreen && (
+                    {!fullscreen && !currentUser && (
                         <Button
                             type="premium"
                             emoji={{ symbol: '🚀', label: 'rocket' }}
@@ -141,8 +143,8 @@ function Header() {
                     <button className={cx('actionBtn', 'hideMobile')} onClick={() => setModalType('Share')}>
                         <img src={share} alt="share" />
                     </button>
-                    <button className={cx('actionBtn', 'hideMobile')}>
-                        {true ? (
+                    <button className={cx('actionBtn', 'hideMobile')} onClick={handleMuteUnmuteAll}>
+                        {!isMuted ? (
                             <img src={volumeActive} alt="volumeActive" />
                         ) : (
                             <img src={volumeMute} alt="volumeMute" />

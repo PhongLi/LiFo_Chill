@@ -5,7 +5,7 @@ const randomNumber = Math.floor(Math.random() * playlistsBase.chill.length);
 const INITIAL_STATE = {
     set: sets[0],
     sceneIndex: 0,
-    sceneEffect: { active: false, effect: undefined },
+    sceneEffect: { active: false, effect: null },
     night: false,
     pixelated: false,
     effects: effects,
@@ -13,9 +13,11 @@ const INITIAL_STATE = {
     current_track: playlistsBase.chill[randomNumber],
     playing: false,
     level: 0.5,
+    last_level: 0,
     playlist: 'chill',
     history_pointer: 0,
     history_tracks: [playlistsBase.chill[randomNumber]],
+    draggableModals: [],
 };
 
 function reducer(state, action) {
@@ -173,6 +175,77 @@ function reducer(state, action) {
                 history_pointer,
                 current_track: newTrack,
             };
+        }
+        case 'set_draggable_modals': {
+            let newDMs = [...state.draggableModals];
+            if (newDMs.includes(action.payload)) {
+                newDMs = newDMs.filter((m) => m !== action.payload);
+            } else {
+                newDMs = [...newDMs, action.payload];
+            }
+            return { ...state, draggableModals: newDMs };
+        }
+        case 'set_template': {
+            const template = action.payload.template;
+            const set = sets.find((t) => t._id === template.setId);
+            const sceneIndex = template.sceneIndex;
+
+            const newEffects = [...state.effects];
+            newEffects.forEach((e) => {
+                delete e.active;
+                delete e.level;
+            });
+            template.effects.forEach((templateEffect) => {
+                const index = newEffects.findIndex((e) => e.type === templateEffect.type);
+                const ef = {
+                    ...newEffects[index],
+                    level: templateEffect.level ?? 0,
+                    active: templateEffect.active ?? templateEffect.level > 0,
+                };
+                newEffects.splice(index, 1, ef);
+            });
+
+            const playlist = template.mood;
+            const level = template.level;
+            const rn = Math.floor(Math.random() * playlistsBase[playlist].length);
+            const current_track = playlistsBase[playlist][rn];
+            const history_pointer = 0;
+            const history_tracks = [playlistsBase[playlist][rn]];
+            const sceneEffect = template.sceneEffect ?? { active: false, effect: undefined };
+            return {
+                ...state,
+                set,
+                sceneIndex,
+                playlist,
+                level,
+                effects: newEffects,
+                playing: true,
+                current_track,
+                history_pointer,
+                history_tracks,
+                sceneEffect,
+            };
+        }
+        case 'mute_audio': {
+            let last_level, level;
+            const player_muted = !state.player_muted;
+            const _effects = [...state.effects];
+            if (state.level > 0) {
+                last_level = state.level;
+                level = 0;
+            } else {
+                level = state.last_level;
+                last_level = 0;
+            }
+            _effects.forEach((ef) => {
+                if (ef.level > 0) {
+                    ef.last_eLevel = ef.level ?? 0;
+                    ef.level = 0;
+                } else {
+                    ef.level = ef.last_eLevel;
+                }
+            });
+            return { ...state, player_muted, level, last_level, effects: _effects };
         }
         default:
             throw new Error('Invalid Actions');

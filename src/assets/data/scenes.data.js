@@ -714,7 +714,7 @@ export const scenes = {
 
         actions: [
             {
-                position: [39, 82],
+                position: [28, 82],
                 title: 'Keyboard',
                 type: 'sound',
                 effect: 'keyboard',

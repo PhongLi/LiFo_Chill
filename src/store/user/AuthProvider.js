@@ -12,10 +12,12 @@ import {
     EmailAuthProvider,
     sendPasswordResetEmail,
 } from 'firebase/auth';
-import { auth } from '~/firebase/config';
+import { auth, db } from '~/firebase/config';
 import LoadingPage from '~/pages/LoadingPage/LoadingPage';
-import { logger } from '~/utils';
+import { logger } from '~/utils/logger';
 import reducer, { INITIAL_STATE } from './reducer';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { forceUpdateMetaData } from './actions';
 
 const AuthContext = createContext();
 
@@ -23,11 +25,15 @@ function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
     const [userState, userDispatch] = useReducer(logger(reducer), INITIAL_STATE);
-
     useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (currentUser) => {
-            setCurrentUser(currentUser);
-
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                let userRef = doc(db, 'users', user.uid);
+                onSnapshot(userRef, (snapshot) => {
+                    userDispatch(forceUpdateMetaData({ data: snapshot.data() }));
+                });
+            }
+            setCurrentUser(user);
             setTimeout(() => setLoading(false), 1000);
         });
         return () => {

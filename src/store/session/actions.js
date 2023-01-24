@@ -55,6 +55,20 @@ const setPlaylist = (payload) => ({
     type: 'set_playlist',
     payload,
 });
+
+const setDraggableModals = (payload) => ({
+    type: 'set_draggable_modals',
+    payload,
+});
+
+const setTemplate = (payload) => ({
+    type: 'set_template',
+    payload,
+});
+const muteUnmuteAll = (payload) => ({
+    type: 'mute_audio',
+    payload,
+});
 export {
     forceUpdateCustomTracks,
     setSceneAndSet,
@@ -69,4 +83,7 @@ export {
     previousTrack,
     setAudioVolume,
     setPlaylist,
+    setDraggableModals,
+    setTemplate,
+    muteUnmuteAll,
 };

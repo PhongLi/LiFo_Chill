@@ -8,7 +8,14 @@ import EffectItem from './EffectItem';
 import { getEffectIcon } from '~/utils/icon-map/effects';
 import { useSelector } from '~/hooks/useSelector';
 import { useStore } from '~/hooks';
-import { SessionSelect, setAudioVolume, setEffectVolume, setMixMode, setPlaylist, setSceneEffect } from '~/store/session';
+import {
+    SessionSelect,
+    setAudioVolume,
+    setEffectVolume,
+    setMixMode,
+    setPlaylist,
+    setSceneEffect,
+} from '~/store/session';
 import styles from './Mixer.module.scss';
 const cx = classNames.bind(styles);
 
@@ -18,12 +25,12 @@ function Mixer() {
 
     const currentSet = useSelector(SessionSelect.getSet);
     const currentScene = useSelector(SessionSelect.getScene);
-    const activeEffects = useSelector(SessionSelect.getPlayerEffects);
+    const playerEffects = useSelector(SessionSelect.getPlayerEffects);
     const mixMode = useSelector(SessionSelect.getMixMode);
     const audioLevel = useSelector(SessionSelect.getAudioLevel);
-    const currentPlaylist = useSelector(SessionSelect.getPlayerPlaylist)
+    const currentPlaylist = useSelector(SessionSelect.getPlayerPlaylist);
 
-    const changePlaylist = (type) => sessionDispatch(setPlaylist({type}));
+    const changePlaylist = (type) => sessionDispatch(setPlaylist({ type }));
 
     //change volume of effect sound
     const handleChangeEffectVol = (effect, level) => {
@@ -41,10 +48,10 @@ function Mixer() {
     };
     return (
         <div className={cx('wrapper')}>
-                <div className={cx('header')}>
-                    <h4 className={cx('title')}>Mood</h4>
-                    <img src={logoPng} alt="" />
-                </div>
+            <div className={cx('header')}>
+                <h4 className={cx('title')}>Mood</h4>
+                <img src={logoPng} alt="logo" />
+            </div>
             <div className={cx('mixer-panel')}>
                 <div className={cx('moods')}>
                     <div
@@ -92,8 +99,9 @@ function Mixer() {
                 </div>
                 <h4 className={cx('title')}>Sounds</h4>
                 <div className={cx('effects-container')}>
+                    {/* render 3 effects of set */}
                     {currentSet.effects.map((e, index) => {
-                        const effect = activeEffects.find((effect) => effect.type === e);
+                        const effect = playerEffects.find((effect) => effect.type === e);
                         return (
                             <EffectItem
                                 label={effect.name}
@@ -106,8 +114,9 @@ function Mixer() {
                         );
                     })}
                     <div>
+                        {/* render the rest of effects list (except 3 effects of set)*/}
                         {mixMode &&
-                            activeEffects
+                            playerEffects
                                 .filter((e) => !currentSet.effects.includes(e.type))
                                 .map((effect, index) => {
                                     return (
@@ -115,7 +124,7 @@ function Mixer() {
                                             label={effect.name}
                                             level={effect.level ?? 0}
                                             changeVol={(level) => handleChangeEffectVol(effect, level)}
-                                            changeScene={() => {}} //no need change scene 
+                                            changeScene={() => {}} //don't need to change scene
                                             key={index}
                                             icon={getEffectIcon(effect.type, effect.active)}
                                         />

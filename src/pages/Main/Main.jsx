@@ -10,8 +10,9 @@ import AudioPlayer from '~/components/AudioPlayer';
 import styles from './Main.module.scss';
 import Login from '~/pages/Login';
 import SignUp from '~/pages/SignUp';
-import AuthLoading from '~/components/AuthLoading';
 import ForgotPassword from '~/pages/ForgotPassword';
+import DraggableModal from '~/components/DraggableModal';
+import { AuthLoading } from '~/components/Loading';
 
 const cx = classNames.bind(styles);
 function Main() {
@@ -25,6 +26,7 @@ function Main() {
             <Background />
             <AuthLoading />
             <DefaultModal />
+            <DraggableModal />
             <EffectsBoard />
             <LateralMenu />
             <AudioPlayer />

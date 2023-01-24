@@ -3,7 +3,6 @@ import borderBrIcon from './border-br.svg';
 import checkIcon from './check.svg';
 import chillIcon from './chill.svg';
 import closeIcon from './close.svg';
-import focusIcon from './lateralMenu/focus.svg';
 import fullscreenIcon from './fullscreen.svg';
 import historyIcon from './history.svg';
 import instagramIcon from './instagram.svg';
@@ -11,7 +10,6 @@ import jazzyIcon from './jazzy.svg';
 import lockIcon from './lock.svg';
 import mailIcon from './mail.svg';
 import mixModeIcon from './mix-mode.svg';
-import moodIcon from './lateralMenu/mood.svg';
 import moonIcon from './moon.svg';
 import nextIcon from './next.svg';
 import notesIcon from './notes.svg';
@@ -20,12 +18,10 @@ import playIcon from './play.svg';
 import prevIcon from './prev.svg';
 import profileIcon from './profile.svg';
 import rainyIcon from './rainy.svg';
-import setIcon from './lateralMenu/set.svg';
 import sleepyIcon from './sleepy.svg';
 import startSessionIcon from './start-session.svg';
 import sunIcon from './sun.svg';
 import sunnyIcon from './sunny.svg';
-import templateIcon from './lateralMenu/template.svg';
 import tomatoIcon from './tomato.svg';
 import twitterIcon from './twitter.svg';
 import volumeMaxIcon from './volume-max.svg';
@@ -36,7 +32,6 @@ import volumeMute from './volume-muted.svg';
 import menu from './menu.svg';
 import share from './share.svg';
 import price from './price.svg';
-
 import contactIcon from './contactIcon.svg';
 import faqIcon from './faqIcon.svg';
 import feedback from './feedback.svg';
@@ -44,8 +39,6 @@ import infos from './infos.svg';
 import infoIcon from './infoIcon.svg';
 import playlist from './playlist.svg';
 import settingIcon from './settingIcon.svg';
-import menuRounded from './lateralMenu/menu-rounded.svg';
-import premiumIcon from './lateralMenu/premium.svg';
 
 // ----------noise icons-----------------------
 import cityIcon from './noises/city.svg';
@@ -93,6 +86,34 @@ import pauseTrackIcon from './player/pause.svg';
 
 import eye1 from './eye1.svg';
 import eye2 from './eye2.svg';
+
+//lateral menu
+import focusIcon from './lateralMenu/focus.svg';
+import moodIcon from './lateralMenu/mood.svg';
+import setIcon from './lateralMenu/set.svg';
+import templateIcon from './lateralMenu/template.svg';
+import menuRounded from './lateralMenu/menu-rounded.svg';
+import premiumIcon from './lateralMenu/premium.svg';
+import menuYoutubeIcon from './lateralMenu/youtubeLogo.svg';
+import menuHistory from './lateralMenu/menu-history.svg';
+import menuPDFIcon from './lateralMenu/menu-pdf.svg';
+import menuNotesIcon from './lateralMenu/menu-notes.svg';
+import menuTimerIcon from './lateralMenu/menu-timer.svg';
+
+//lateral menu - save templates
+import chillTemplateIcon from './lateralMenu/saveTemplates/chillTemp.svg';
+import chillTemplateActive from './lateralMenu/saveTemplates/chillActive.svg';
+import focusTemplateIcon from './lateralMenu/saveTemplates/focusTemp.svg';
+import focusTemplateActive from './lateralMenu/saveTemplates/focusActive.svg';
+import sleepTemplateIcon from './lateralMenu/saveTemplates/sleepTemp.svg';
+import sleepTemplateActive from './lateralMenu/saveTemplates/sleepActive.svg';
+import saveIcon from './lateralMenu/saveTemplates/save.svg';
+
+import closePopupIcon from './lateralMenu/saveTemplates/close_popup.svg';
+import deleteIcon from './lateralMenu/saveTemplates/deleteIcon.svg';
+import editIcon from './lateralMenu/saveTemplates/editIcon.svg';
+import moreIcon from './lateralMenu/saveTemplates/more.svg';
+import smallPlayIcon from './lateralMenu/saveTemplates/small_play.svg';
 
 export {
     eye1,
@@ -184,4 +205,21 @@ export {
     settingIcon,
     menuRounded,
     premiumIcon,
+    chillTemplateIcon,
+    chillTemplateActive,
+    focusTemplateIcon,
+    focusTemplateActive,
+    sleepTemplateIcon,
+    sleepTemplateActive,
+    saveIcon,
+    closePopupIcon,
+    deleteIcon,
+    editIcon,
+    moreIcon,
+    smallPlayIcon,
+    menuYoutubeIcon,
+    menuHistory,
+    menuPDFIcon,
+    menuNotesIcon,
+    menuTimerIcon,
 };

@@ -5,19 +5,22 @@ import PropTypes from 'prop-types';
 import styles from './Mixer.module.scss';
 const cx = classNames.bind(styles);
 
-function EffectItem({ icon, label, level, changeVol, changeScene }) {
+function EffectItem({ icon, label, level, changeVol, changeScene, disabled = false }) {
     return (
         <div className={cx('effect-volume')}>
             <p>{label}</p>
             <ReactSlider
+                disabled={disabled}
                 className={cx('volume-slider')}
-                defaultValue={level*100}
-                onChange={(value) => changeVol(value/100)}
-                onAfterChange={(value) => {changeScene(value !== 0)}}
+                defaultValue={level * 100}
+                onChange={(value) => changeVol(value / 100)}
+                onAfterChange={(value) => {
+                    changeScene(value !== 0);
+                }}
                 renderThumb={(props, state) => {
                     return (
                         <div {...props} className={cx('volume-thumb')}>
-                            <img src={icon} alt="" style={{ width: '100%', height: 'auto' }} />
+                            <img src={icon} alt="effect icon" style={{ width: '100%', height: 'auto' }} />
                         </div>
                     );
                 }}
@@ -39,7 +42,8 @@ EffectItem.propsType = {
     label: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
     changeVol: PropTypes.func.isRequired,
-    changeScene: PropTypes.func
+    changeScene: PropTypes.func,
+    disabled: PropTypes.bool,
 };
 
 export default EffectItem;

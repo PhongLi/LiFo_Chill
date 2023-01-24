@@ -1,0 +1,80 @@
+.wrapper {
+    position: relative;
+    width: 146px;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #24242f;
+    cursor: pointer;
+
+    img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .template-menu {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 0 16px;
+        z-index: 100;
+
+        img {
+            height: 36px;
+            width: 36px;
+            transition: all 0.1s ease;
+            &:hover {
+                opacity: 0.4;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+        .closeMenu {
+            position: absolute;
+            top: -34px;
+            right: 0;
+            height: 22px;
+            width: 22px;
+            margin: 8px;
+        }
+    }
+
+    .template-body {
+        position: absolute;
+        top: 0;
+        background: var(--gradient-half); //must use background not background color
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        width: 100%;
+
+        .template-name {
+            font-weight: 500;
+            width: 80%;
+            padding: 0 8px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .effects-list {
+            min-height: 38px;
+            width: 120%;
+            display: flex;
+            flex-wrap: wrap;
+            border-top: 1px solid #ffffff10;
+            overflow: hidden;
+            padding-bottom: 5px;
+            .effect {
+                height: 32px;
+                width: 38px;
+                object-fit: fill;
+                padding: 5px 4px 0;
+                opacity: 0.3;
+            }
+        }
+    }
+}

@@ -28,7 +28,7 @@ function Profile({ onClose }) {
     const handleLogOut = async () => {
         try {
             await logout();
-            await onClose();
+            onClose();
             window.location.reload();
         } catch (error) {
             console.log(error);

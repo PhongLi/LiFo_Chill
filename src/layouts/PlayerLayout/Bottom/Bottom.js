@@ -8,12 +8,11 @@ import styles from './Bottom.module.scss';
 const cx = classNames.bind(styles);
 
 function Bottom() {
-
     const { session } = useStore();
     const [, sessionDispatch] = session;
     const playing = useSelector(SessionSelect.getPlayingStatus);
     const currentTrack = useSelector(SessionSelect.getCurrentTrack);
-    
+
     const handelPlayPause = () => {
         sessionDispatch(playAndPauseAudio());
     };
@@ -32,21 +31,31 @@ function Bottom() {
                 <p>{!!currentTrack.title?.length ? 'Music by -' : 'Music by - lofi.co 2021 ©'}</p>
 
                 {currentTrack.title?.length && currentTrack.title?.includes('https:') && (
-                    <img src={currentTrack.title} alt="" className={cx('title')} onClick={handleOpenLink} />
+                    <img src={currentTrack.title} alt="title" className={cx('title')} onClick={handleOpenLink} />
                 )}
             </div>
-            <div className={cx('player-bar','hideMobile')}>
-                <img src={prevIcon} alt="" className={cx('icon', 'button-np')} onClick={handlePrevTrack} />
+            <div className={cx('player-bar', 'hideMobile')}>
+                <img src={prevIcon} alt="prevIcon" className={cx('icon', 'button-np')} onClick={handlePrevTrack} />
 
                 <>
                     {!playing ? (
-                        <img src={playIcon} alt="" className={cx('icon', 'button-pp')} onClick={handelPlayPause} />
+                        <img
+                            src={playIcon}
+                            alt="playIcon"
+                            className={cx('icon', 'button-pp')}
+                            onClick={handelPlayPause}
+                        />
                     ) : (
-                        <img src={pauseIcon} alt="" className={cx('icon', 'button-pp')} onClick={handelPlayPause} />
+                        <img
+                            src={pauseIcon}
+                            alt="pauseIcon"
+                            className={cx('icon', 'button-pp')}
+                            onClick={handelPlayPause}
+                        />
                     )}
                 </>
 
-                <img src={nextIcon} alt="" className={cx('icon', 'button-np')} onClick={handleNextTrack} />
+                <img src={nextIcon} alt="nextIcon" className={cx('icon', 'button-np')} onClick={handleNextTrack} />
             </div>
         </div>
     );

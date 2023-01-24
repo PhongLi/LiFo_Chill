@@ -1,6 +1,6 @@
 import React, { useState, createContext, useReducer } from 'react';
+import { logger } from '~/utils/logger';
 import reducer, { INITIAL_STATE } from './reducer';
-import { logger } from '~/utils';
 
 export const AppContext = createContext();
 

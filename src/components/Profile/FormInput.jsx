@@ -15,6 +15,7 @@ function FormInput({ required, value, label, id, type, setValue }) {
                 id={id}
                 type={type}
                 defaultValue={value ?? ''}
+                className={'general-input'}
                 onChange={(e) => setValue(e.target.value)}
             />
         </div>

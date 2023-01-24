@@ -5,6 +5,7 @@ import { useSelector } from '~/hooks/useSelector';
 import { SessionSelect } from '~/store/session';
 function EffectsBoard() {
     const currentEffects = useSelector(SessionSelect.getPlayerEffects);
+    const playerMuted = useSelector(SessionSelect.getPlayerMuted);
     const noisesRef = useRef([]);
     const handleLoop = (loaded, played, playedSeconds, index) => {
         // console.log('loaded', loaded);
@@ -32,7 +33,7 @@ function EffectsBoard() {
                         url={e.url}
                         volume={level ?? 0}
                         onProgress={(p) => handleLoop(p.loaded, p.played, p.playedSeconds, index)}
-                        playing={effect.active}
+                        playing={!playerMuted && effect.active}
                     />
                 );
             })}

@@ -60,3 +60,14 @@ export const getAudioLevel = (state) => {
 export const getPlayerPlaylist = (state) => {
     return state.playlist;
 };
+
+export const getDraggableModals = (state) => {
+    return state.draggableModals;
+};
+export const getSceneEffect = (state) => {
+    return state.sceneEffect;
+};
+
+export const getPlayerMuted = (state) => {
+    return state.player_muted;
+};
