@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useStore } from '~/hooks';
 import { useSelector } from '~/hooks/useSelector';
@@ -13,51 +14,11 @@ import EffectItem from '../Mixer/EffectItem';
 import { sets } from '~/assets/data/sets.data';
 import { getEffectIcon } from '~/utils/icon-map/effects';
 import { arrowLeftIcon, chillIcon, editIcon, jazzyIcon, saveIcon, sleepyIcon } from '~/assets/icons';
+import { CircularLoading } from '~/components/Loading';
+import { TEMPLATES } from '~/constants/texts';
 
 import styles from './SaveTemplate.module.scss';
-import { CircularLoading } from '~/components/Loading';
-import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
-
-const TEMPLATES = {
-    chill: {
-        _id: 'chill',
-        level: 0.4,
-        name: 'chill',
-        sceneIndex: 1,
-        mood: 'chill',
-        setId: 'forest_house',
-        effects: [
-            { level: 0.3, type: 'river' },
-            { level: 0.3, type: 'birds' },
-        ],
-    },
-    sleep: {
-        _id: 'sleep',
-        level: 0.4,
-        name: 'sleep',
-        sceneIndex: 0,
-        mood: 'sleepy',
-        setId: 'van_life',
-
-        effects: [
-            { level: 0.3, type: 'forest' },
-            { level: 0.35, type: 'fire' },
-        ],
-    },
-    focus: {
-        _id: 'focus',
-        level: 0.4,
-        name: 'focus',
-        sceneIndex: 0,
-        mood: 'chill',
-        setId: 'lofi_cafe',
-        effects: [
-            { level: 0.35, type: 'rain_street' },
-            { level: 0.3, type: 'city' },
-        ],
-    },
-};
 
 function SaveTemplate() {
     const { session, currentUser, setMenuActive } = useStore();

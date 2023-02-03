@@ -200,9 +200,9 @@ function reducer(state, action) {
                 const ef = {
                     ...newEffects[index],
                     level: templateEffect.level ?? 0,
-                    active: templateEffect.active ?? templateEffect.level > 0,
+                    active: templateEffect.active ?? templateEffect.level > 0, // if null -> true if level > 0 else false
                 };
-                newEffects.splice(index, 1, ef);
+                newEffects.splice(index, 1, ef); //replace new effect in array newEffects
             });
 
             const playlist = template.mood;
@@ -211,7 +211,7 @@ function reducer(state, action) {
             const current_track = playlistsBase[playlist][rn];
             const history_pointer = 0;
             const history_tracks = [playlistsBase[playlist][rn]];
-            const sceneEffect = template.sceneEffect ?? { active: false, effect: undefined };
+            const sceneEffect = template.sceneEffect ?? { active: false, effect: null };
             return {
                 ...state,
                 set,

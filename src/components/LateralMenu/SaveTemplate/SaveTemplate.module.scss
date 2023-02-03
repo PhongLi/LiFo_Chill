@@ -170,7 +170,7 @@
             height: var(--mood-width);
             border-radius: 12px;
             overflow: hidden;
-            img {
+            .mood-icon {
                 position: absolute;
                 transform: translateY(-10%);
                 filter: brightness(2) opacity(0.1);

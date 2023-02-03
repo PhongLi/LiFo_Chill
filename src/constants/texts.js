@@ -1,4 +1,4 @@
-import { profileIcon, faqIcon, feedback, infos, infoIcon, playlist, settingIcon, contactIcon, price } from '~/assets/icons';
+import { profileIcon, feedback, infos, infoIcon, settingIcon, price } from '~/assets/icons';
 
 export const Titles = [
     {
@@ -43,7 +43,7 @@ export const MENU_ITEMS = [
         id: 0,
         title: 'User settings',
         icon: profileIcon,
-        modal: 'Profile'
+        modal: 'Profile',
     },
     {
         id: 1,
@@ -92,3 +92,43 @@ export const MENU_ITEMS = [
         action: () => window.open('https://airtable.com/shrDWZLVdKhXg4uiA', '__bank'),
     },
 ];
+
+export const TEMPLATES = {
+    chill: {
+        _id: 'chill',
+        level: 0.4,
+        name: 'chill',
+        sceneIndex: 1,
+        mood: 'chill',
+        setId: 'forest_house',
+        effects: [
+            { level: 0.3, type: 'river' },
+            { level: 0.3, type: 'birds' },
+        ],
+    },
+    sleep: {
+        _id: 'sleep',
+        level: 0.4,
+        name: 'sleep',
+        sceneIndex: 0,
+        mood: 'sleepy',
+        setId: 'van_life',
+
+        effects: [
+            { level: 0.3, type: 'forest' },
+            { level: 0.35, type: 'fire' },
+        ],
+    },
+    focus: {
+        _id: 'focus',
+        level: 0.4,
+        name: 'focus',
+        sceneIndex: 0,
+        mood: 'chill',
+        setId: 'lofi_cafe',
+        effects: [
+            { level: 0.35, type: 'rain_street' },
+            { level: 0.3, type: 'city' },
+        ],
+    },
+};

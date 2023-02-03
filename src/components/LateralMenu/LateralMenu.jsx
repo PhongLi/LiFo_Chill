@@ -94,27 +94,27 @@ function LateralMenu() {
                     <div className={cx('study-tools', `${menuActive === 'Tools' ? 'open' : 'closed'}`)}>
                         <div className={cx('divider')}></div>
                         <Tooltip content="Youtube">
-                            <div className={cx('menu-item')}>
+                            <div className={cx('menu-item', `${menuActive !== 'Tools' && 'closed'}`)}>
                                 <ReactSVG src={menuYoutubeIcon} alt="youtube" />
                             </div>
                         </Tooltip>
                         <Tooltip content="Timer">
-                            <div className={cx('menu-item')}>
+                            <div className={cx('menu-item', `${menuActive !== 'Tools' && 'closed'}`)}>
                                 <ReactSVG src={menuTimerIcon} alt="timer" />
                             </div>
                         </Tooltip>
                         <Tooltip content="Notes">
-                            <div className={cx('menu-item')}>
+                            <div className={cx('menu-item', `${menuActive !== 'Tools' && 'closed'}`)}>
                                 <ReactSVG src={menuNotesIcon} alt="notes" />
                             </div>
                         </Tooltip>
                         <Tooltip content="PDF Reader">
-                            <div className={cx('menu-item')}>
+                            <div className={cx('menu-item', `${menuActive !== 'Tools' && 'closed'}`)}>
                                 <ReactSVG src={menuPDFIcon} alt="pdf" />
                             </div>
                         </Tooltip>
                         <Tooltip content="Insights">
-                            <div className={cx('menu-item')}>
+                            <div className={cx('menu-item', `${menuActive !== 'Tools' && 'closed'}`)}>
                                 <ReactSVG src={menuHistory} alt="insights" />
                             </div>
                         </Tooltip>
