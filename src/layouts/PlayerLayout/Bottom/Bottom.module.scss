@@ -35,6 +35,10 @@
             opacity: 0.3;
         }
     }
+    .player-bar {
+        display: flex;
+        align-items: center;
+    }
 }
 
 // next icon, prev icon

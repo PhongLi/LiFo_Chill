@@ -34,7 +34,7 @@ function Share({ onClose }) {
                     onClick={copyToClipboard}
                     className={isCopied ? cx('copied') : ''}
                     readOnly
-                    value="https://lifo-chill.onrender.com/"
+                    value="https://app-chillhop.onrender.com/"
                     contentEditable={false}
                 />
                 {isCopied && <p className={cx('text-copied')}>Copied!</p>}

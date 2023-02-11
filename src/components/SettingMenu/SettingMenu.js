@@ -27,9 +27,9 @@ function SettingMenu({ items = [], children }) {
                 } else if (item.action) {
                     item.action();
                 } else if (item.id === 1) {
-                    navigate("?auth=login")
+                    navigate('?auth=login');
                 } else {
-                    console.log(item);
+                    // console.log(item);
                 }
             };
             const Icon = item.icon;

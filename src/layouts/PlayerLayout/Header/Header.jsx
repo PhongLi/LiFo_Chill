@@ -68,9 +68,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('header-logo')}>
+                <Button type="clear" href="https://chillhop.onrender.com" className={cx('header-logo')}>
                     <img src={logoGif} alt="logo" style={{ height: 100 }} />
-                </div>
+                </Button>
                 <div className={cx('actions')}>
                     {/* clock show time */}
                     <Clock />

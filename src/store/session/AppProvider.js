@@ -9,7 +9,7 @@ function AppProvider({ children }) {
     const [menuActive, setMenuActive] = useState();
     const [sessionState, sessionDispatch] = useReducer(logger(reducer), INITIAL_STATE);
 
-    console.log('-----------provider render------------');
+    // console.log('-----------provider render------------');
     const value = {
         modalType,
         setModalType,

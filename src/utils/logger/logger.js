@@ -1,15 +1,14 @@
 function logger(reducer) {
     return (prevState, action) => {
-      console.group(action.type);
-      console.log("Prev state: ", prevState);
-      console.log("action: ", action);
-  
-      const nextState = reducer(prevState, action);
-      console.log("Next state: ", nextState);
-      console.groupEnd();
-      return nextState;
+        // console.group(action.type);
+        // console.log("Prev state: ", prevState);
+        // console.log("action: ", action);
+
+        const nextState = reducer(prevState, action);
+        // console.log("Next state: ", nextState);
+        // console.groupEnd();
+        return nextState;
     };
-  }
-  
-  export default logger;
-  
+}
+
+export default logger;

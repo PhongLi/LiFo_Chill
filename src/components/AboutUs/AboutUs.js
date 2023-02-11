@@ -30,9 +30,9 @@ function AboutUs({ onClose }) {
                 <Button
                     type={'social'}
                     leftIcon={mailIcon}
-                    onClick={() => window.open('mailto:hello@lofi.co', '_blank')}
+                    onClick={() => window.open('mailto:hello@lifo.co', '_blank')}
                 >
-                    hello@lofi.com
+                    hello@lifo.com
                 </Button>
             </div>
         </div>
